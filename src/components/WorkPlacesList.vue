@@ -73,13 +73,14 @@ function onSetActive(index: number) {
   width: 50%
 
 .primary
-  color: $primary
+  color: var(--q-primary)
 
 .header
   color: $lightest-slate
 .date
   font-family: "Fira Code", monospace
   padding-left: 1.5px
+  color: $light-slate
 
 ul
   list-style: none
@@ -87,9 +88,10 @@ ul
     max-width: 400px
     position: relative
     padding-left: 20px
+    color: $slate
   li::before
     content: "»"
     position: absolute
     left: 0
-    color: $primary
+    color: var(--q-primary)
 </style>
