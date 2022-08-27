@@ -45,4 +45,4 @@ const workPlaces: GroupElement[] = [
   },
 ];
 
-export default workPlaces
+export default workPlaces;

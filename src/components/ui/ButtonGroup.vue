@@ -1,17 +1,22 @@
 <template>
-  <div class='column'>
-    <div class='col' v-for='(group, index) in groupElements' :key='group.label' ref='buttonRefs'>
+  <div class="column">
+    <div
+      class="col"
+      v-for="(group, index) in groupElements"
+      :key="group.label"
+      ref="buttonRefs"
+    >
       <custom-button
-        :label='group.label'
-        :active='activeElement === index'
-        :onclick='() => handleClick(index)'
-        v-bind:width=maxWidth
+        :label="group.label"
+        :active="activeElement === index"
+        :onclick="() => handleClick(index)"
+        v-bind:width="maxWidth"
       />
     </div>
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import { GroupElement } from 'src/models/GroupElement';
 import CustomButton from 'components/ui/CustomButton.vue';
 import { computed, ref, watch } from 'vue';
@@ -21,34 +26,34 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  groupElements: () => []
+  groupElements: () => [],
 });
 
 const activeElement = ref<number>(0);
 
-const buttonRefs = ref([])
+const buttonRefs = ref([]);
 
-function handleClick(index: number){
-  activeElement.value = index
-  emit('setActive', index)
+function handleClick(index: number) {
+  activeElement.value = index;
+  emit('setActive', index);
 }
 
 const maxWidth = computed(() => {
-  let tempWidth = 0
-  buttonRefs.value.forEach(elem => {
+  let tempWidth = 0;
+  buttonRefs.value.forEach((elem) => {
     if (elem.children[0].lastChild.offsetWidth > tempWidth)
-      tempWidth = elem.children[0].lastChild.offsetWidth
-  })
-  return tempWidth
-})
+      tempWidth = elem.children[0].lastChild.offsetWidth;
+  });
+  return tempWidth;
+});
 
-const emit = defineEmits(['setActive'])
-watch(() => maxWidth, (currentWidth, prevWidth) => {
-  console.log(currentWidth, prevWidth)
-} )
-
+const emit = defineEmits(['setActive']);
+watch(
+  () => maxWidth,
+  (currentWidth, prevWidth) => {
+    console.log(currentWidth, prevWidth);
+  }
+);
 </script>
 
-<style scoped lang='sass'>
-
-</style>
+<style scoped lang="sass"></style>

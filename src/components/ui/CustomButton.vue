@@ -1,19 +1,19 @@
 <template>
   <div>
-    <span :class='{ active: active }'></span>
+    <span :class="{ active: active }"></span>
     <q-btn
-      ref='button'
+      ref="button"
       square
       no-caps
       flat
-      :label='label'
-      align='left'
-      :class='{btn: true, btnActive: active}'
+      :label="label"
+      align="left"
+      :class="{ btn: true, btnActive: active }"
     />
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref, watch } from 'vue';
 
 interface Props {
@@ -23,9 +23,8 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  active: () => false
+  active: () => false,
 });
-
 
 const button = ref(null);
 
@@ -37,10 +36,9 @@ watch(
     }
   }
 );
-
 </script>
 
-<style scoped lang='sass'>
+<style scoped lang="sass">
 .btnActive
   color: $primary !important
 

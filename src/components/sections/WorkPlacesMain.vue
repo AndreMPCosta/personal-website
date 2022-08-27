@@ -1,7 +1,7 @@
 <template>
-  <div class="row q-pa-md container">
+  <div class="row q-pt-lg">
     <div class="col-3">
-      <div class="q-pa-md">
+      <div class="q-pt-md">
         <ButtonGroup :group-elements="workPlaces" @setActive="onSetActive" />
       </div>
     </div>
@@ -57,9 +57,6 @@ function onSetActive(index: number) {
 </script>
 
 <style scoped lang="sass">
-.container
-  width: 50%
-
 .primary
   color: var(--q-primary)
 

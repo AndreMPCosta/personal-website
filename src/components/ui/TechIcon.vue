@@ -1,5 +1,5 @@
 <template>
-  <q-icon :name="`img:${technology}.svg`" size='lg'/>
+  <q-icon :name="`img:${technology}.svg`" size="lg" />
 </template>
 
 <script setup lang="ts">
