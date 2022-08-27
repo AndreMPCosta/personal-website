@@ -5,5 +5,6 @@ export interface GroupElement {
     companyURL: URL,
     date: string,
     info: string[]
+    technologies: string[]
   }
 }
