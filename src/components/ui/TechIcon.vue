@@ -1,5 +1,9 @@
 <template>
-  <q-icon :name="`img:${technology}.svg`" size="lg" />
+  <q-icon :name="`img:${technology}.svg`" size="lg">
+    <q-tooltip class="bg-primary" :offset="[0, 7]">
+      {{ technology }}
+    </q-tooltip>
+  </q-icon>
 </template>
 
 <script setup lang="ts">
