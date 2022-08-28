@@ -9,7 +9,6 @@ const workPlaces: GroupElement[] = [
       date: 'March 2022 — Present',
       info: [
         'Be part of the team responsible for data privacy solutions, being a full stack developer',
-        'Work with a variety of different languages, and frameworks such as JavaScript, TypeScript, Python, React, Next, FastApi',
         'Develop new features, working closely with the data science team',
       ],
       technologies: [

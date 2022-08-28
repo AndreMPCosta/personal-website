@@ -7,11 +7,20 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useQuasar } from 'quasar';
+
 interface Props {
   number: string;
   text: string;
 }
 defineProps<Props>();
+
+const $q = useQuasar();
+
+const lineWidth = computed(() => {
+  return $q.screen.gt.sm ? '400px' : $q.screen.lt.sm ? '200px' : '400px';
+});
 </script>
 
 <style scoped lang="sass">
@@ -33,5 +42,5 @@ hr
   background-color: #333
   top: 5px
   left: 0
-  width: 400px
+  width: v-bind(lineWidth)
 </style>

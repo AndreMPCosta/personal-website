@@ -1,7 +1,7 @@
 <template>
-  <div class="row q-pt-lg">
+  <div class="row q-pt-lg hero">
     <div class="column">
-      <h1>
+      <div :class="headerClass" id="animate">
         <span>H</span>
         <span>i</span>
         <span>,</span>
@@ -9,7 +9,7 @@
         <span>I</span>
         <span style="margin-left: 2rem">a</span>
         <span>m</span>
-        <span style="margin-left: 2rem;" class='mainLetter'>A</span>
+        <span style="margin-left: 2rem" class="mainLetter">A</span>
         <span>n</span>
         <span>d</span>
         <span>r</span>
@@ -34,23 +34,43 @@
         <span>e</span>
         <span>r</span>
         <span>.</span>
-      </h1>
-      <div class="text-overline text-blue-grey-4 q-pl-xs">
-        Full Stack Developer / Python Expert
       </div>
+      <div :class="footerClass">Full Stack Developer / Python Expert</div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useQuasar } from 'quasar';
+
+const $q = useQuasar();
+const headerClass = computed(() => {
+  return $q.screen.gt.sm
+    ? 'text-h1'
+    : $q.screen.gt.xs
+    ? 'text-h3 q-pl-md'
+    : 'text-h4';
+});
+
+const footerClass = computed(() => {
+  const base = 'text-overline text-blue-grey-4';
+  return $q.screen.gt.sm
+    ? base + ' q-px-xs'
+    : $q.screen.lt.sm
+    ? base + ' q-px-lg'
+    : base + ' q-px-md';
+});
+</script>
 
 <style scoped lang="sass">
 .mainLetter
   color: var(--q-primary)
-h1 > span
+
+#animate > span
   display: inline-block
 
-h1 > span:hover
+#animate > span:hover
   color: var(--q-primary)
   animation: rubberBand
   animation-duration: 1s

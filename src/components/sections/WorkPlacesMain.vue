@@ -31,7 +31,7 @@
       </ul>
       <div class="text-body2 column">
         <div class="col q-pb-md">Languages/Frameworks:</div>
-        <div class="col q-gutter-md">
+        <div class="col q-gutter-md" ref='tech'>
           <TechIcon
             :technology="technology"
             v-for="technology in workPlaces[activeIndex].content.technologies"
@@ -45,9 +45,21 @@
 
 <script setup lang="ts">
 import ButtonGroup from 'components/ui/ButtonGroup.vue';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import workPlaces from 'src/content/workplaces';
 import TechIcon from 'components/ui/TechIcon.vue';
+
+
+interface Props {
+  fireAnimation: Record<string, boolean>
+}
+const props = defineProps<Props>()
+const tech = ref<HTMLElement| null>(null)
+
+watch(props.fireAnimation, () => {
+  if (props.fireAnimation)
+    tech?.value?.classList.add('animate-bounceInUp');
+})
 
 const activeIndex = ref<number>(0);
 
@@ -102,4 +114,21 @@ ul
     position: absolute
     left: 0
     color: var(--q-primary)
+
+.animate-bounceInUp
+  animation: q-bounceInUp cubic-bezier(0.215, 0.61, 0.355, 1) 1s
+
+@keyframes q-bounceInUp
+  0%
+    opacity: 0
+    transform: translate3d(0, 3000px, 0) scaleY(3)
+  60%
+    opacity: 1
+    transform: translate3d(0, -25px, 0) scaleY(1)
+  75%
+    transform: translate3d(0, 10px, 0) scaleY(0.98)
+  90%
+    transform: translate3d(0, -5px, 0) scaleY(0.995)
+  100%
+    transform: translate3d(0, 0, 0)
 </style>

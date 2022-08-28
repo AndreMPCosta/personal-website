@@ -2,11 +2,15 @@
   <q-page class="row justify-center">
     <div class="column">
       <div v-for="(section, index) in sections" :key="index">
-        <component
-          v-scroll-fire="showSection"
-          v-bind:is="section"
-          style="opacity: 0"
-        ></component>
+        <KeepAlive>
+          <component
+            v-scroll-fire="
+              (element) => showSection(element, section.name, false)
+            "
+            :is="section.component"
+            v-bind="{ ...section.props }"
+          ></component>
+        </KeepAlive>
       </div>
     </div>
   </q-page>
@@ -16,23 +20,52 @@
 import AboutSection from 'components/sections/AboutSection.vue';
 import HeroSection from 'components/sections/HeroSection.vue';
 import WorkPlacesSection from 'components/sections/WorkPlacesSection.vue';
-import { VueElement } from 'vue';
+import { ref, VueElement } from 'vue';
 
-const sections = [HeroSection, AboutSection, WorkPlacesSection];
+const fireAnimation = ref<boolean>(false);
 
-function showSection(element: VueElement) {
-  element.classList.add('animate-fadeInUp');
-  element.addEventListener('animationend', () => {
-    element.style.opacity = '1';
-  });
+const sections = [
+  {
+    component: HeroSection as InstanceType<typeof HeroSection>,
+    name: 'HeroSection',
+    props: {
+      showSection,
+    },
+  },
+  {
+    component: AboutSection as InstanceType<typeof AboutSection>,
+    name: 'AboutSection',
+    props: {},
+  },
+  {
+    component: WorkPlacesSection as InstanceType<typeof WorkPlacesSection>,
+    name: 'WorkPlacesSection',
+    props: {
+      fireAnimation,
+    },
+  },
+];
+
+function showSection(
+  element: VueElement,
+  sectionName: string,
+  forceCall: boolean
+) {
+  if (sectionName !== 'HeroSection' || forceCall) {
+    element.classList.add('animate-fadeIn');
+    element.addEventListener('animationend', () => {
+      element.style.opacity = '1';
+    });
+    if (sectionName === 'WorkPlacesSection') fireAnimation.value = true;
+  }
 }
 </script>
 
 <style scoped lang="sass">
-.animate-fadeInUp
-  animation: q-fadeInUp ease-in 1s
+.animate-fadeIn
+  animation: q-fadeIn ease-in 1s
 
-@keyframes q-fadeInUp
+@keyframes q-fadeIn
   0%
     opacity: 0
   100%

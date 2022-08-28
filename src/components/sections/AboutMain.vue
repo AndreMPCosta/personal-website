@@ -1,6 +1,6 @@
 <template>
   <div class="row q-pt-lg justify-center">
-    <div class="col-8 text-body2">
+    <div class="col-lg-8 col-xs-12 text-body2">
       Contrary to popular belief, Lorem Ipsum is not simply random text. It has
       roots in a piece of classical Latin literature from 45 BC, making it over
       2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
@@ -17,7 +17,10 @@
       Cicero are also reproduced in their exact original form, accompanied by
       English versions from the 1914 translation by H. Rackham.
     </div>
-    <div class="col-4 q-pl-xl">
+    <div
+      class="col-lg-4"
+      :style="$q.screen.gt.md ? { paddingLeft: '48px' } : { paddingTop: '48px' }"
+    >
       <q-avatar size="256px">
         <img :src="'profile_cropped.jpg'" alt="profile" />
       </q-avatar>

@@ -4,15 +4,22 @@
 
 .section-header
   max-height: 30px !important
+  @media (max-width: $breakpoint-xs-max)
+    justify-content: center
 
-.thin-full-section
-  margin-left: 150px
-  margin-right: 150px
+.hero
+  @media (min-width: $breakpoint-xs-max)
+    padding-left: 48px
+  @media (max-width: $breakpoint-xs-max)
+    justify-content: center
 
 section
   margin-top: 100px
   margin-bottom: 100px
   max-width: 900px
+  @media (max-width: $breakpoint-xs-max)
+    padding-left: 16px
+    padding-right: 16px
 
 /* width */
 ::-webkit-scrollbar
