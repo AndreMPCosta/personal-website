@@ -25,7 +25,8 @@
         <span>a</span>
         <span>r</span>
         <span>e</span>
-        <span style="margin-left: 2rem">e</span>
+        <br v-if='$q.screen.lt.sm'>
+        <span :style="{marginLeft: $q.screen.gt.xs? '32px': 0}">e</span>
         <span>n</span>
         <span>g</span>
         <span>i</span>
@@ -49,7 +50,7 @@ const headerClass = computed(() => {
   return $q.screen.gt.sm
     ? 'text-h1'
     : $q.screen.gt.xs
-    ? 'text-h3 q-pl-md'
+    ? 'text-h3'
     : 'text-h4';
 });
 
@@ -59,7 +60,7 @@ const footerClass = computed(() => {
     ? base + ' q-px-xs'
     : $q.screen.lt.sm
     ? base + ' q-px-lg'
-    : base + ' q-px-md';
+    : base + ' q-px-xs';
 });
 </script>
 

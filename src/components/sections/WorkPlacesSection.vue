@@ -1,5 +1,5 @@
 <template>
-  <section class="column items-center" ref="root">
+  <section class="column" ref="root">
     <div class="col">
       <SectionHeader text="Workplaces" number="2" />
     </div>
