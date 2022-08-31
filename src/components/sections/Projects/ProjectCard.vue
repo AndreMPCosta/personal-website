@@ -6,7 +6,11 @@
       </q-item-section>
 
       <q-item-section>
-        <q-item-label class="text-primary text-body1 text-weight-bold">{{ title }}</q-item-label>
+        <q-item-label class="text-primary text-h6 text-weight-bold title">
+          <a :href="homepage" target="_blank">{{
+            title
+          }}</a></q-item-label
+        >
         <q-item-label caption class="header-subtitle">
           {{ subtitle }}
         </q-item-label>
@@ -16,30 +20,61 @@
     <q-separator />
 
     <q-card-section>
-      <slot></slot>
+      <slot v-if='project.slot'><component :is='project.slot'></component></slot>
     </q-card-section>
 
     <q-card-actions>
       <div class="fit row wrap justify-end items-center">
-        <div class='text-overline q-pr-md'>Stack</div>
         <q-btn
-          color="grey"
           round
           flat
-          dense
-          :icon="expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
-          @click="expanded = !expanded"
+          icon="eva-github-outline"
+          size="md"
+          class="q-pr-md changeColor"
+          :href="github"
+          target="_blank"
         />
+        <q-btn
+          v-if='project.gitlab'
+          round
+          flat
+          icon="img:/icons/gitlab.svg"
+          size="md"
+          class="q-pr-md changeColor"
+          :href="project.gitlab"
+          target="_blank"
+        />
+        <q-btn
+          v-if='homepage'
+          round
+          flat
+          icon="eva-link-outline"
+          size="md"
+          class="q-pr-md changeColor"
+          :href="homepage"
+          target="_blank"
+        />
+        <q-btn color="grey" flat @click="expanded = !expanded">
+          <div class="row items-center no-wrap changeColor">
+            <div class="text-overline q-pr-xs changeColor">Stack</div>
+            <q-icon right name="eva-chevron-up-outline" v-if="expanded" />
+            <q-icon right name="eva-chevron-down-outline" v-if="!expanded" />
+          </div>
+        </q-btn>
       </div>
     </q-card-actions>
     <q-slide-transition>
       <div v-show="expanded">
         <q-separator />
         <q-card-section class="text-subitle2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          <div class="row q-gutter-md justify-end">
+            <TechIcon
+              size='sm'
+              :technology="technology"
+              v-for="technology in stack"
+              :key="technology"
+            />
+          </div>
         </q-card-section>
       </div>
     </q-slide-transition>
@@ -48,13 +83,16 @@
 
 <script setup lang="ts">
 import { Project } from 'src/models/Project';
-import { ref, toRefs } from 'vue';
+import { reactive, ref } from 'vue';
+import TechIcon from 'components/ui/TechIcon.vue';
 interface Props {
   project: Project;
 }
 
 const props = defineProps<Props>();
-const { imageSrc, title, subtitle } = toRefs(props.project);
+const { imageSrc, title, subtitle, stack, github, homepage } = reactive(
+  props.project
+);
 
 const expanded = ref<boolean>(false);
 </script>
@@ -63,6 +101,16 @@ const expanded = ref<boolean>(false);
 .card
   width: 400px
   max-width: 550px
+  @media (max-width: $breakpoint-md-max)
+    max-width: 350px
 .header-subtitle
   color: $slate !important
+
+.changeColor:hover
+  color: $primary
+
+a
+  text-decoration: none
+a:visited
+  color: inherit
 </style>
