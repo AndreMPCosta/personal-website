@@ -1,6 +1,6 @@
-import HeroSection from 'components/sections/HeroSection.vue';
-import AboutSection from 'components/sections/AboutSection.vue';
-import WorkPlacesSection from 'components/sections/WorkPlacesSection.vue';
+import HeroSection from 'components/sections/Hero/HeroSection.vue';
+import AboutSection from 'components/sections/About/AboutSection.vue';
+import WorkPlacesSection from 'components/sections/WorkPlaces/WorkPlacesSection.vue';
 
 export interface Section {
   component:

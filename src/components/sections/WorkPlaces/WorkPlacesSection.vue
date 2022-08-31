@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from '../ui/SectionHeader.vue';
+import SectionHeader from '../../ui/SectionHeader.vue';
 import WorkPlacesMain from './WorkPlacesMain.vue';
 import { onMounted, ref, VueElement } from 'vue';
 

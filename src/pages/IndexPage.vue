@@ -18,9 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import AboutSection from 'components/sections/AboutSection.vue';
-import HeroSection from 'components/sections/HeroSection.vue';
-import WorkPlacesSection from 'components/sections/WorkPlacesSection.vue';
+import AboutSection from 'components/sections/About/AboutSection.vue';
+import HeroSection from 'components/sections/Hero/HeroSection.vue';
+import WorkPlacesSection from 'components/sections/WorkPlaces/WorkPlacesSection.vue';
+import ProjectsSection from 'components/sections/Projects/ProjectsSection.vue';
 import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 
@@ -46,6 +47,11 @@ const sections = [
     props: {
       fireAnimation,
     },
+  },
+  {
+    component: ProjectsSection as InstanceType<typeof ProjectsSection>,
+    name: 'ProjectsSection',
+    props: {},
   },
 ];
 
