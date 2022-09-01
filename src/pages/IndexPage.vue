@@ -64,9 +64,10 @@ for (let i = 0; i <= 1.0; i += 0.01) {
 function showSection(observer: IntersectionObserverEntry, sectionName: string) {
   const val = observer.intersectionRatio * 100;
   if (
-    observer.isIntersecting &&
+    (observer.isIntersecting &&
     val > ($q.screen.lt.sm? 20: 80) &&
-    !observer.target.classList.contains('animate-fadeIn')
+    !observer.target.classList.contains('animate-fadeIn'))
+    || (observer.isIntersecting && sectionName === 'ProjectsSection' && val > 20)
   ) {
     observer.target.classList.add('animate-fadeIn');
     observer.target.addEventListener('animationend', () => {

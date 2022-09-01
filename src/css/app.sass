@@ -2,6 +2,15 @@
 //.container
 //  width: 800px
 
+html, body
+  @media (max-width: $breakpoint-xs-max)
+    overflow-x: hidden
+
+body
+  @media (max-width: $breakpoint-xs-max)
+    position: relative
+
+
 section
   align-items: center
 
@@ -40,3 +49,5 @@ section
   color: $lightest-slate
 .slot-body
   color: $slate
+
+
