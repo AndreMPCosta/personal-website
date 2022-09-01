@@ -170,8 +170,10 @@ function flip() {
 
 a
   text-decoration: none
-a:visited
-  color: inherit
+  &:visited
+    color: inherit
+  &:link
+    color: inherit
 
 .flip-left-out
   transition: all 1s ease-out
