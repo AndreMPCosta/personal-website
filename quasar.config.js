@@ -105,7 +105,14 @@ module.exports = configure(function (/* ctx */) {
 
     // animations: 'all', // --- includes all animations
     // https://v2.quasar.dev/options/animations
-    animations: ['fadeInUp', 'rubberBand', 'flipOutY', 'flipInY'],
+    animations: [
+      'fadeInUp',
+      'rubberBand',
+      'flipOutY',
+      'flipInY',
+      'fadeOut',
+      'fadeIn',
+    ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#sourcefiles
     // sourceFiles: {

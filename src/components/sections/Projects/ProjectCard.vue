@@ -14,7 +14,15 @@
         </q-item-label>
       </q-item-section>
       <q-item>
-        <q-btn round flat icon="eva-swap-outline" @click="flip" />
+        <q-btn
+          ref="arrow"
+          class='arrow'
+          round
+          flat
+          :ripple="false"
+          icon="eva-arrow-forward-outline"
+          @click="flip"
+        />
       </q-item>
     </q-item>
 
@@ -100,6 +108,7 @@
 import { Project } from 'src/models/Project';
 import { reactive, ref } from 'vue';
 import TechIcon from 'components/ui/TechIcon.vue';
+import { QBtn } from 'quasar';
 
 interface Props {
   project: Project;
@@ -110,6 +119,7 @@ const { imageSrc, title, subtitle, stack, github, homepage } = reactive(
   props.project
 );
 
+const arrow = ref<QBtn | null>(null);
 const front = ref<HTMLElement | null>(null);
 const back = ref<HTMLElement | null>(null);
 const actions = ref<HTMLElement | null>(null);
@@ -118,20 +128,19 @@ const expanded = ref<boolean>(false);
 
 function flip() {
   if (backFace.value) {
-    if (expanded.value) expanded.value = false;
     front.value?.classList.remove('flip-left-out');
     back.value?.classList.remove('flip-left-in');
     front.value?.classList.add('flip-left-out--active');
     back.value?.classList.add('flip-left-in--active');
     actions.value?.classList.remove('animate-fadeIn');
-    // actions.value?.classList.remove('animate-fadeOut');
+    arrow.value?.$el.classList.add('rotate-back')
   } else {
     front.value?.classList.add('flip-left-out');
     back.value?.classList.add('flip-left-in');
     front.value?.classList.remove('flip-left-out--active');
     back.value?.classList.remove('flip-left-in--active');
     actions.value?.classList.add('animate-fadeIn');
-    // actions.value?.classList.add('animate-fadeOut');
+    arrow.value?.$el.classList.remove('rotate-back')
   }
   backFace.value = !backFace.value;
 }
@@ -210,4 +219,13 @@ a:visited
     opacity: 1
   100%
     opacity: 0
+
+.arrow
+  transform: scaleX(1)
+  transition: transform .5s
+  &:hover
+    color: $primary
+
+.rotate-back
+  transform: scaleX(-1)
 </style>
