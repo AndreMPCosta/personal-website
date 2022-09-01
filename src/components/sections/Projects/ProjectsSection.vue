@@ -3,7 +3,7 @@
     <div class="col">
       <SectionHeader text="Projects" number="3" />
     </div>
-    <div class="col q-gutter-lg q-pt-lg">
+    <div class="col q-gutter-xl q-pt-lg">
       <ProjectCard
         :key='project.title'
         v-for="project in projects"
