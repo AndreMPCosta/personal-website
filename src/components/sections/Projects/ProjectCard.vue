@@ -89,9 +89,8 @@
       <q-img
         :alt="subtitle"
         src="https://camo.githubusercontent.com/3a5be86d350ecd4e18003b3acdd9fcb71f5095e286a74481d3e08a98add3e9bb/68747470733a2f2f692e696d6775722e636f6d2f39486d72644e512e676966"
-        :width="$q.screen.gt.xs ? '538px' : '320px'"
-        position="0 0"
-        :fit="$q.screen.gt.xs? 'none': 'scale-down'"
+        :width="$q.screen.gt.xs ? '460px' : '320px'"
+        fit="scale-down"
       />
     </div>
   </q-card>
@@ -140,8 +139,8 @@ function flip() {
 
 <style scoped lang="sass">
 .customCard
-  width: 538px
-  height: 600px
+  width: 460px
+  height: 696px
 
   @media (max-width: $breakpoint-xs-max)
     width: 320px
