@@ -1,5 +1,5 @@
 <template>
-  <q-flashcard square class="card">
+  <q-card square class="card">
     <q-item>
       <q-item-section avatar>
         <q-avatar> <img :src="imageSrc" :alt="`image_${title}`" /> </q-avatar>
@@ -78,7 +78,7 @@
         </q-card-section>
       </div>
     </q-slide-transition>
-  </q-flashcard>
+  </q-card>
   <!--    <q-card-->
   <!--      square-->
   <!--      class="card"-->
