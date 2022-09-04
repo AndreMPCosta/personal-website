@@ -4,7 +4,8 @@
       dense
       round
       flat
-      icon="eva-arrow-forward-outline"
+      size="xs"
+      icon="lens"
       @click="changeActiveSlide(slide)"
       :color="activeSlide === slide ? 'primary' : 'white'"
     />
