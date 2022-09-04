@@ -16,7 +16,7 @@
       <q-item>
         <q-btn
           ref="arrow"
-          class='arrow'
+          class="arrow"
           round
           flat
           :ripple="false"
@@ -94,12 +94,39 @@
     </div>
 
     <div ref="back" class="backCard flip-left-in">
-      <q-img
-        :alt="subtitle"
-        src="https://camo.githubusercontent.com/3a5be86d350ecd4e18003b3acdd9fcb71f5095e286a74481d3e08a98add3e9bb/68747470733a2f2f692e696d6775722e636f6d2f39486d72644e512e676966"
-        :width="$q.screen.gt.xs ? '460px' : '320px'"
-        fit="scale-down"
-      />
+      <!-- TODO change to circles -->
+      <q-item-section v-if="!backFace">
+        <div class="row justify-center">
+          <navigation-dots
+            :slides="[0, 1]"
+            :active-slide="slide"
+            @changedActiveSlide="changeSlide"
+          />
+        </div>
+      </q-item-section>
+      <q-carousel
+        v-model="slide"
+        transition-prev="scale"
+        transition-next="scale"
+        swipeable
+        animated
+        control-color="white"
+        height="104%"
+      >
+        <q-carousel-slide
+          v-for="(img, index) in backImages"
+          :key="index"
+          :name="index"
+          :style="{ padding: 0 }"
+        >
+          <q-img
+            :alt="subtitle"
+            :src="img"
+            :width="$q.screen.gt.xs ? '460px' : '320px'"
+            fit="scale-down"
+          />
+        </q-carousel-slide>
+      </q-carousel>
     </div>
   </q-card>
 </template>
@@ -109,15 +136,15 @@ import { Project } from 'src/models/Project';
 import { reactive, ref } from 'vue';
 import TechIcon from 'components/ui/TechIcon.vue';
 import { QBtn } from 'quasar';
+import NavigationDots from 'components/ui/NavigationDots.vue';
 
 interface Props {
   project: Project;
 }
 
 const props = defineProps<Props>();
-const { imageSrc, title, subtitle, stack, github, homepage } = reactive(
-  props.project
-);
+const { imageSrc, title, subtitle, stack, github, homepage, backImages } =
+  reactive(props.project);
 
 const arrow = ref<QBtn | null>(null);
 const front = ref<HTMLElement | null>(null);
@@ -125,6 +152,11 @@ const back = ref<HTMLElement | null>(null);
 const actions = ref<HTMLElement | null>(null);
 const backFace = ref<boolean>(true);
 const expanded = ref<boolean>(false);
+const slide = ref<number>(0);
+
+function changeSlide(value: number) {
+  slide.value = value;
+}
 
 function flip() {
   if (backFace.value) {
@@ -133,14 +165,14 @@ function flip() {
     front.value?.classList.add('flip-left-out--active');
     back.value?.classList.add('flip-left-in--active');
     actions.value?.classList.remove('animate-fadeIn');
-    arrow.value?.$el.classList.add('rotate-back')
+    arrow.value?.$el.classList.add('rotate-back');
   } else {
     front.value?.classList.add('flip-left-out');
     back.value?.classList.add('flip-left-in');
     front.value?.classList.remove('flip-left-out--active');
     back.value?.classList.remove('flip-left-in--active');
     actions.value?.classList.add('animate-fadeIn');
-    arrow.value?.$el.classList.remove('rotate-back')
+    arrow.value?.$el.classList.remove('rotate-back');
   }
   backFace.value = !backFace.value;
 }
@@ -149,18 +181,23 @@ function flip() {
 <style scoped lang="sass">
 .customCard
   width: 460px
-  height: 696px
+  min-height: 500px // 748
+  transition: min-height
 
   @media (max-width: $breakpoint-xs-max)
     width: 320px
-    height: 510px
+    height: 400px //610
 
 .backCard
   position: absolute
   left: 0
   top: 75px
-  width: 500px
+  width: 460px
   height: 600px
+
+  @media (max-width: $breakpoint-xs-max)
+    width: 320px
+    height: 415px
 
 .header-subtitle
   color: $slate !important
@@ -185,11 +222,13 @@ a
   transform: perspective(400px) rotateY(180deg)
 
 .flip-left-out--active
+  min-height: 748px
   transform: perspective(400px) rotateY(-180deg)
   backface-visibility: hidden
   transition: all 1s ease-out
 
 .flip-up-in--active
+  max-height: 500px
   transform: perspective(400px) rotateX(0)
   backface-visibility: hidden
   transition: all 1s ease-out

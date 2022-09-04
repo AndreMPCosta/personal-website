@@ -5,7 +5,7 @@
         <ButtonGroup :group-elements="workPlaces" @setActive="onSetActive" />
       </div>
     </div>
-    <div class="col-lg-9 q-pa-md items-start">
+    <div class="col-lg-7 q-pa-md items-start description">
       <div class="q-ma-none q-mt-xs text-h6 header">
         {{ workPlaces[activeIndex].content.title }}
         <span class="primary">@ </span>
@@ -101,6 +101,11 @@ function onSetActive(index: number) {
 .hover-underline-animation:hover:after
   transform: scaleX(1)
   transform-origin: bottom left
+
+.description
+  min-width: 432px
+  @media (max-width: $breakpoint-sm-max)
+    min-width: inherit
 
 ul
   list-style: none

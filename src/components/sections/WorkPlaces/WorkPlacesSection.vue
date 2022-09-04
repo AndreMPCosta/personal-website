@@ -3,7 +3,7 @@
     <div class="col">
       <SectionHeader text="Workplaces" number="2" />
     </div>
-    <div class="col">
+    <div class="col parent">
       <WorkPlacesMain :fire-animation="fireAnimation" />
     </div>
   </section>
@@ -25,4 +25,9 @@ onMounted(() => {
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.parent
+  min-width: 700px
+  @media (max-width: $breakpoint-sm-max)
+    min-width: inherit
+</style>

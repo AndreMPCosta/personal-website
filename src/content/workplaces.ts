@@ -18,28 +18,61 @@ const workPlaces: GroupElement[] = [
         'React',
         'NextJS',
         'FastApi',
+        'MongoDB'
       ],
     },
   },
   {
     label: 'Valmedis',
     content: {
-      title: 'Engineer',
+      title: 'Web Developer',
       companyURL: new URL('https://valmedis.pt/'),
-      date: 'March 2022 - Present',
+      date: 'June 2020 - March 2022',
       info: [
-        'Be part of the team responsible for data privacy solutions, being a full stack developer',
-        'Work with a variety of different languages, and frameworks such as JavaScript, TypeScript, Python, React, Next, FastApi',
-        'Develop new features, working closely with the data science team',
+        "Solo Web Developer, responsible for the company's website",
+        'Develop internal tools to automate processes, using Web Scraping (BeautifulSoup) and Selenium',
       ],
-      technologies: [
-        'JavaScript',
-        'TypeScript',
-        'Python',
-        'React',
-        'NextJS',
-        'FastApi',
+      technologies: ['Python', 'Flask', 'Selenium', 'Javascript', 'PostgreSQL'],
+    },
+  },
+  {
+    label: 'Freelancer',
+    content: {
+      title: 'Web Developer',
+      companyURL: new URL('https://celfocus.pt/'),
+      date: 'November 2018 - June 2020',
+      info: [
+        'Worked in different projects as a Freelancer',
+        'Python was used as the main tool for the development',
       ],
+      technologies: ['Python', 'Flask', 'FastApi', 'Javascript', 'MongoDB', 'PostgreSQL'],
+    },
+  },
+  {
+    label: 'Celfocus',
+    content: {
+      title: 'Managed Services',
+      companyURL: new URL('https://celfocus.pt/'),
+      date: 'February 2018 - November 2018',
+      info: [
+        'Support for Vodafone IoT project (Internet in the Car)',
+        'Aiding on a monitoring solution using Zabbix',
+      ],
+      technologies: ['Oracle', 'Python', 'Zabbix'],
+    },
+  },
+  {
+    label: 'Accenture',
+    content: {
+      title: 'Application Development Associate',
+      companyURL: new URL('https://accenture.pt/'),
+      date: 'January 2017 - February 2018',
+      info: [
+        'Development of an IoT solution, connecting Amazon Echo (AI) within the project using AWS Lambda',
+        'Augmented reality solution for Microsoft Hololens',
+        'Back End development, for an Health Company'
+      ],
+      technologies: ['Java', 'Python', 'C#', 'Javascript', 'SAP'],
     },
   },
 ];

@@ -9,4 +9,5 @@ export interface Project {
   github: string;
   gitlab?: string;
   homepage?: string;
+  backImages: string[];
 }
