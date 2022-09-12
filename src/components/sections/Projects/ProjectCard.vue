@@ -94,11 +94,10 @@
     </div>
 
     <div ref="back" class="backCard flip-left-in">
-      <!-- TODO change to circles -->
       <q-item-section v-if="!backFace">
         <div class="row justify-center">
           <navigation-dots
-            :slides="[0, 1]"
+            :slides="Array.from(Array(backImages.length).keys())"
             :active-slide="slide"
             @changedActiveSlide="changeSlide"
           />
@@ -181,12 +180,11 @@ function flip() {
 <style scoped lang="sass">
 .customCard
   width: 460px
-  min-height: 500px // 748
-  transition: min-height
+  min-height: 734px // 748
 
   @media (max-width: $breakpoint-xs-max)
     width: 320px
-    height: 400px //610
+    min-height: 541px //610
 
 .backCard
   position: absolute
@@ -222,13 +220,13 @@ a
   transform: perspective(400px) rotateY(180deg)
 
 .flip-left-out--active
-  min-height: 748px
+  //min-height: 500px
   transform: perspective(400px) rotateY(-180deg)
   backface-visibility: hidden
   transition: all 1s ease-out
 
 .flip-up-in--active
-  max-height: 500px
+  //max-height: 500px
   transform: perspective(400px) rotateX(0)
   backface-visibility: hidden
   transition: all 1s ease-out

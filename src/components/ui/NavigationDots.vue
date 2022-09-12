@@ -5,7 +5,7 @@
       round
       flat
       size="xs"
-      icon="lens"
+      icon="circle"
       @click="changeActiveSlide(slide)"
       :color="activeSlide === slide ? 'primary' : 'white'"
     />
