@@ -4,7 +4,7 @@
       dense
       round
       flat
-      size="xs"
+      size="6px"
       icon="circle"
       @click="changeActiveSlide(slide)"
       :color="activeSlide === slide ? 'primary' : 'white'"
@@ -27,4 +27,6 @@ function changeActiveSlide(slide: number){
 
 </script>
 
-<style scoped lang="sass"></style>
+<style scoped lang="sass">
+
+</style>
