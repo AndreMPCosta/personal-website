@@ -30,7 +30,7 @@
         </li>
       </ul>
       <div class="text-body2 column">
-        <div class="col q-pb-md">Languages/Frameworks:</div>
+        <div class="col q-pb-md">Languages/Frameworks/Tools:</div>
         <div class="col q-gutter-md" ref='tech'>
           <TechIcon
             :technology="technology"
