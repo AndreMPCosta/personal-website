@@ -1,10 +1,9 @@
 <template>
-  <div class='col col-xs-12 q-px-sm' v-html='fetchedSVG'>
-  </div>
+  <div class='col col-xs-12 q-px-sm' v-html='fetchedSVG'></div>
 </template>
 
 <script setup lang='ts'>
-import { onMounted, ref} from 'vue';
+import { onMounted, ref } from 'vue';
 import axios from 'axios';
 
 const fetchedSVG = ref('');
@@ -16,7 +15,6 @@ let transformSvgG: string;
 let splat: string[];
 let originalTranslateX: number;
 let originalTranslateY: number;
-
 
 function onElFound(selector: string, { timeout = 10000, freq = 100 }) {
   return new Promise<HTMLElement>((resolve, reject) => {
@@ -38,10 +36,12 @@ function onElFound(selector: string, { timeout = 10000, freq = 100 }) {
   });
 }
 
-
 onMounted(async () => {
   fetchSVG().then();
-  svg = await onElFound('.js-calendar-graph-svg', { timeout: 10000, freq: 100 });
+  svg = await onElFound('.js-calendar-graph-svg', {
+    timeout: 10000,
+    freq: 100
+  });
   svgG = document.querySelector('.js-calendar-graph-svg g') as HTMLElement;
   widthSvgG = svgG.getBoundingClientRect().width;
   transformSvgG = window.getComputedStyle(svgG).transform;
@@ -59,28 +59,15 @@ function adjustSvgPosition() {
 }
 
 async function fetchSVG() {
-  const response = await axios.get('http://localhost:10000/andrempcosta');
+  const response = await axios.get('http://94.61.54.51:10000/andrempcosta');
   fetchedSVG.value = response.data;
   setTimeout(() => {
-    const days = Array.from(document.querySelectorAll('.ContributionCalendar-day')) as HTMLElement[];
+    const days = Array.from(
+      document.querySelectorAll('.ContributionCalendar-day')
+    ) as HTMLElement[];
     days.forEach((day) => {
-      let date = new Date();
-      let yearDate = '';
-      let monthDate = '';
-      let dayDate = '';
-      if (day.dataset.date) {
-        date = new Date(day.dataset.date);
-        yearDate = date.toLocaleString('default', { year: 'numeric' });
-        monthDate = date.toLocaleString('default', { month: 'short' });
-        dayDate = date.toLocaleString('default', { day: '2-digit' });
-      }
       day.addEventListener('mousemove', (event: Event) => {
-        showToolTip(
-          event as MouseEvent,
-          `<b>${day.dataset.count} ${day.dataset.count !== '1' ?
-            'contributions' :
-            'contribution'
-          }</b> on ${monthDate} ${dayDate}, ${yearDate}`);
+        showToolTip(event as MouseEvent, day.innerHTML);
       });
       day.addEventListener('mouseout', () => {
         hideToolTip();
@@ -108,9 +95,6 @@ function hideToolTip() {
 window.addEventListener('resize', () => {
   adjustSvgPosition();
 });
-
 </script>
 
-<style scoped lang='sass'>
-
-</style>
+<style scoped lang='sass'></style>
