@@ -63,7 +63,7 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: require('dotenv').config().parsed,
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -72,6 +72,9 @@ module.exports = configure(function (/* ctx */) {
 
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
+      viteVuePluginOptions: {
+        reactivityTransform: true,
+      },
 
       // vitePlugins: [
       //   [ 'package-name', { ..options.. } ]
@@ -113,6 +116,10 @@ module.exports = configure(function (/* ctx */) {
       'flipInY',
       'fadeOut',
       'fadeIn',
+      'slideInDown',
+      'slideInUp',
+      'slideOutUp',
+      'slideInLeft'
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#sourcefiles

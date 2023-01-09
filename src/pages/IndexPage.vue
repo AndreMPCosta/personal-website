@@ -26,7 +26,7 @@ import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 
 const fireAnimation = ref<boolean>(false);
-const $q = useQuasar()
+const $q = useQuasar();
 
 const sections = [
   {
@@ -65,9 +65,9 @@ function showSection(observer: IntersectionObserverEntry, sectionName: string) {
   const val = observer.intersectionRatio * 100;
   if (
     (observer.isIntersecting &&
-    val > ($q.screen.lt.sm? 20: 80) &&
-    !observer.target.classList.contains('animate-fadeIn'))
-    || (observer.isIntersecting && sectionName === 'ProjectsSection' && val > 20)
+      val > ($q.screen.lt.sm ? 20 : 80) &&
+      !observer.target.classList.contains('animate-fadeIn')) ||
+    (observer.isIntersecting && sectionName === 'ProjectsSection' && val > 20)
   ) {
     observer.target.classList.add('animate-fadeIn');
     observer.target.addEventListener('animationend', () => {

@@ -5,9 +5,9 @@
     </div>
     <div class="col q-gutter-xl q-pt-lg">
       <ProjectCard
-        :key='project.title'
+        :key="project.title"
         v-for="project in projects"
-        :project='project'
+        :project="project"
       ></ProjectCard>
     </div>
   </section>

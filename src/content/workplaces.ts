@@ -18,7 +18,7 @@ const workPlaces: GroupElement[] = [
         'React',
         'NextJS',
         'FastApi',
-        'MongoDB'
+        'MongoDB',
       ],
     },
   },
@@ -45,7 +45,14 @@ const workPlaces: GroupElement[] = [
         'Worked in different projects as a Freelancer',
         'Python was used as the main tool for the development',
       ],
-      technologies: ['Python', 'Flask', 'FastApi', 'Javascript', 'MongoDB', 'PostgreSQL'],
+      technologies: [
+        'Python',
+        'Flask',
+        'FastApi',
+        'Javascript',
+        'MongoDB',
+        'PostgreSQL',
+      ],
     },
   },
   {
@@ -70,7 +77,7 @@ const workPlaces: GroupElement[] = [
       info: [
         'Development of an IoT solution, connecting Amazon Echo (AI) within the project using AWS Lambda',
         'Augmented reality solution for Microsoft Hololens',
-        'Back End development, for an Health Company'
+        'Back End development, for an Health Company',
       ],
       technologies: ['Java', 'Python', 'C#', 'Javascript', 'SAP'],
     },

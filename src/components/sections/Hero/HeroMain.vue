@@ -25,8 +25,8 @@
         <span>a</span>
         <span>r</span>
         <span>e</span>
-        <br v-if='$q.screen.lt.sm'>
-        <span :style="{marginLeft: $q.screen.gt.xs? '32px': 0}">e</span>
+        <br v-if="$q.screen.lt.sm" />
+        <span :style="{ marginLeft: $q.screen.gt.xs ? '32px' : 0 }">e</span>
         <span>n</span>
         <span>g</span>
         <span>i</span>
@@ -47,11 +47,7 @@ import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 const headerClass = computed(() => {
-  return $q.screen.gt.sm
-    ? 'text-h1'
-    : $q.screen.gt.xs
-    ? 'text-h3'
-    : 'text-h4';
+  return $q.screen.gt.sm ? 'text-h1' : $q.screen.gt.xs ? 'text-h3' : 'text-h4';
 });
 
 const footerClass = computed(() => {

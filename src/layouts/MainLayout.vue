@@ -2,7 +2,9 @@
   <q-layout view="hHh lpR fFf">
     <q-header reveal class="q-dark text-white">
       <q-toolbar>
-        <q-toolbar-title> Title </q-toolbar-title>
+<!--        <q-avatar>-->
+<!--          <img :src="'profile_navbar.jpg'" alt="profile" />-->
+<!--        </q-avatar>-->
       </q-toolbar>
     </q-header>
 

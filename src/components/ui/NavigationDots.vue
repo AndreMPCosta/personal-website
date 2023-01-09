@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-
 interface Props {
   activeSlide: number;
   slides: number[];
@@ -21,12 +20,9 @@ interface Props {
 defineProps<Props>();
 const emit = defineEmits(['changedActiveSlide']);
 
-function changeActiveSlide(slide: number){
+function changeActiveSlide(slide: number) {
   emit('changedActiveSlide', slide);
 }
-
 </script>
 
-<style scoped lang="sass">
-
-</style>
+<style scoped lang="sass"></style>

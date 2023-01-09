@@ -1,6 +1,6 @@
 import { Project } from 'src/models/Project';
 import GymAppContent from 'components/projectSlots/GymAppContent.vue';
-import MangalibeContent from 'components/projectSlots/MangalibeContent.vue'
+import MangalibeContent from 'components/projectSlots/MangalibeContent.vue';
 
 const projects: Project[] = [
   {
@@ -13,8 +13,8 @@ const projects: Project[] = [
     slot: MangalibeContent as InstanceType<typeof MangalibeContent>,
     backImages: [
       '/projects/mangalibe_showcase_resize.jpg',
-      '/projects/mangalibe_showcase_2_resize.jpg'
-    ]
+      '/projects/mangalibe_showcase_2_resize.jpg',
+    ],
   },
   {
     imageSrc: '/projects/padel_primary.png',
@@ -23,7 +23,7 @@ const projects: Project[] = [
     stack: ['FastApi', 'MongoDB', 'Python'],
     github: 'https://github.com/AndreMPCosta/padel-checker-pub',
     homepage: 'http://185.185.127.191:8000/docs',
-    backImages: []
+    backImages: [],
   },
   {
     imageSrc: '/projects/gym.png',
@@ -34,9 +34,9 @@ const projects: Project[] = [
     gitlab: 'https://gitlab.com/andrempcosta/playapp',
     slot: GymAppContent as InstanceType<typeof GymAppContent>,
     backImages: [
-      'https://camo.githubusercontent.com/3a5be86d350ecd4e18003b3acdd9fcb71f5095e286a74481d3e08a98add3e9bb/68747470733a2f2f692e696d6775722e636f6d2f39486d72644e512e676966'
-    ]
-  }
+      'https://camo.githubusercontent.com/3a5be86d350ecd4e18003b3acdd9fcb71f5095e286a74481d3e08a98add3e9bb/68747470733a2f2f692e696d6775722e636f6d2f39486d72644e512e676966',
+    ],
+  },
 ];
 
-export default projects
+export default projects;

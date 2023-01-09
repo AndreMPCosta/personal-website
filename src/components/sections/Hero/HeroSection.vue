@@ -25,7 +25,6 @@ onMounted(() => {
   if (root.value) root.value.style.opacity = '0';
   props.showSection(root?.value, 'HeroSection', true);
 });
-
 </script>
 
 <style scoped></style>

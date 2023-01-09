@@ -2,7 +2,7 @@
   <q-card square class="customCard">
     <q-item>
       <q-item-section avatar>
-        <q-avatar> <img :src="imageSrc" :alt="`image_${title}`" /> </q-avatar>
+        <q-avatar><img :src="imageSrc" :alt="`image_${title}`" /></q-avatar>
       </q-item-section>
 
       <q-item-section>
@@ -29,9 +29,9 @@
     <q-separator />
     <div ref="front" class="flip-left-out">
       <q-card-section>
-        <slot v-if="project.slot"
-          ><component :is="project.slot"></component
-        ></slot>
+        <slot v-if="project.slot">
+          <component :is="project.slot"></component>
+        </slot>
       </q-card-section>
     </div>
     <div ref="actions">
@@ -66,7 +66,7 @@
             :href="homepage"
             target="_blank"
           />
-          <q-btn color="grey" flat @click="expanded = !expanded">
+          <q-btn color="grey" flat @click="toggleExpanded">
             <div class="fit row items-center no-wrap changeColor">
               <div class="text-overline q-pr-xs changeColor">Stack</div>
               <q-icon right name="eva-chevron-up-outline" v-if="expanded" />
@@ -76,8 +76,12 @@
         </div>
       </q-card-actions>
 
-      <q-slide-transition class="expanded-actions">
-        <div v-show="expanded">
+      <transition
+        appear
+        enter-active-class="animated slideInDown"
+        leave-active-class="animated fadeOut"
+      >
+        <div class="expanded-actions" v-show="expanded">
           <q-separator />
           <q-card-section class="text-subtitle2">
             <div class="row q-gutter-md justify-end">
@@ -90,7 +94,7 @@
             </div>
           </q-card-section>
         </div>
-      </q-slide-transition>
+      </transition>
     </div>
 
     <div ref="back" class="backCard flip-left-in">
@@ -152,9 +156,24 @@ const actions = ref<HTMLElement | null>(null);
 const backFace = ref<boolean>(true);
 const expanded = ref<boolean>(false);
 const slide = ref<number>(0);
+const minHeight = ref<string>('561px');
+const mobileOffset = ref<string>('0')
+const animationDuration = '.7s'
 
 function changeSlide(value: number) {
   slide.value = value;
+}
+
+function toggleExpanded() {
+  expanded.value = !expanded.value;
+  if (expanded.value) {
+    minHeight.value = '634px';
+    mobileOffset.value = '58px'
+  }
+  else {
+    minHeight.value = '561px';
+    mobileOffset.value = '0'
+  }
 }
 
 function flip() {
@@ -180,11 +199,18 @@ function flip() {
 <style scoped lang="sass">
 .customCard
   width: 460px
-  min-height: 734px // 748
+  min-height: 724px
+  // 748
 
   @media (max-width: $breakpoint-xs-max)
     width: 320px
-    min-height: 541px //610
+    min-height: v-bind(minHeight)
+    -moz-transition: v-bind(animationDuration)
+    -ms-transition: v-bind(animationDuration)
+    -o-transition: v-bind(animationDuration)
+    -webkit-transition: v-bind(animationDuration)
+    transition: v-bind(animationDuration)
+//610
 
 .backCard
   position: absolute
@@ -205,8 +231,10 @@ function flip() {
 
 a
   text-decoration: none
+
   &:visited
     color: inherit
+
   &:link
     color: inherit
 
@@ -233,8 +261,16 @@ a
 
 .actions
   position: absolute
-  bottom: 60px
+  bottom: 58px
   width: 100%
+  @media (max-width: $breakpoint-xs-max)
+    position: absolute
+    bottom: v-bind(mobileOffset)
+    -moz-transition: v-bind(animationDuration)
+    -ms-transition: v-bind(animationDuration)
+    -o-transition: v-bind(animationDuration)
+    -webkit-transition: v-bind(animationDuration)
+    transition: v-bind(animationDuration)
 
 .expanded-actions
   position: absolute
@@ -262,6 +298,7 @@ a
 .arrow
   transform: scaleX(1)
   transition: transform .5s
+
   &:hover
     color: $primary
 

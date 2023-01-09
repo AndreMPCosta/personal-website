@@ -31,7 +31,7 @@
       </ul>
       <div class="text-body2 column">
         <div class="col q-pb-md">Languages/Frameworks/Tools:</div>
-        <div class="col q-gutter-md" ref='tech'>
+        <div class="col q-gutter-md" ref="tech">
           <TechIcon
             :technology="technology"
             v-for="technology in workPlaces[activeIndex].content.technologies"
@@ -49,17 +49,15 @@ import { ref, watch } from 'vue';
 import workPlaces from 'src/content/workplaces';
 import TechIcon from 'components/ui/TechIcon.vue';
 
-
 interface Props {
-  fireAnimation: Record<string, boolean>
+  fireAnimation: Record<string, boolean>;
 }
-const props = defineProps<Props>()
-const tech = ref<HTMLElement| null>(null)
+const props = defineProps<Props>();
+const tech = ref<HTMLElement | null>(null);
 
 watch(props.fireAnimation, () => {
-  if (props.fireAnimation)
-    tech?.value?.classList.add('animate-bounceInUp');
-})
+  if (props.fireAnimation) tech?.value?.classList.add('animate-bounceInUp');
+});
 
 const activeIndex = ref<number>(0);
 
