@@ -43,8 +43,6 @@ onMounted(async () => {
 });
 
 async function fetchSVG() {
-  console.log(process.env.ENVIRONMENT)
-  console.log(process.env.GITHUB_CALENDAR_URL)
   const response = await api.get(`/${props.username}/contributions`);
   fetchedSVG.value = response.data.svg;
   contributions.value = response.data.contributions;

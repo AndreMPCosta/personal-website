@@ -63,7 +63,10 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      env: require('dotenv').config().parsed,
+      env: {
+        GITHUB_CALENDAR_URL: 'https://github-calendar.andrecosta.eu',
+        ...require('dotenv').config().parsed,
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
@@ -119,7 +122,7 @@ module.exports = configure(function (/* ctx */) {
       'slideInDown',
       'slideInUp',
       'slideOutUp',
-      'slideInLeft'
+      'slideInLeft',
     ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#sourcefiles

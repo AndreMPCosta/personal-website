@@ -17,9 +17,6 @@ export const baseURL = process.env.DEV
   ? 'http://localhost:10000'
   : process.env.GITHUB_CALENDAR_URL;
 
-console.log(process.env.ENVIRONMENT);
-console.log(process.env.GITHUB_CALENDAR_URL);
-
 const api = axios.create({ baseURL: baseURL });
 
 export default boot(({ app }) => {
