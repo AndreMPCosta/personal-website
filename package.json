@@ -35,6 +35,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^9.4.0",
     "prettier": "^2.7.1",
+    "quasar-app-extension-system-environment-variables": "^2.0.4",
     "typescript": "^4.8.2"
   },
   "engines": {
