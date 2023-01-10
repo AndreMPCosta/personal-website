@@ -157,8 +157,8 @@ const backFace = ref<boolean>(true);
 const expanded = ref<boolean>(false);
 const slide = ref<number>(0);
 const minHeight = ref<string>('561px');
-const mobileOffset = ref<string>('0')
-const animationDuration = '.7s'
+const mobileOffset = ref<string>('0');
+const animationDuration = '.7s';
 
 function changeSlide(value: number) {
   slide.value = value;
@@ -168,11 +168,10 @@ function toggleExpanded() {
   expanded.value = !expanded.value;
   if (expanded.value) {
     minHeight.value = '634px';
-    mobileOffset.value = '58px'
-  }
-  else {
+    mobileOffset.value = '58px';
+  } else {
     minHeight.value = '561px';
-    mobileOffset.value = '0'
+    mobileOffset.value = '0';
   }
 }
 

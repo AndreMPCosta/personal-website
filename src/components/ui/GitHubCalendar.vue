@@ -2,12 +2,13 @@
   <div>
     <p class="text-caption">{{ contributions }}</p>
     <div class="col col-xs-12 q-px-sm" v-html="fetchedSVG"></div>
+    <!--    <img src='http://localhost:10000/andrempcosta/contributions?get_image=true' alt='github-chart'/>-->
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import axios from 'axios';
+import { api } from 'boot/axios';
 
 interface Props {
   username: string;
@@ -42,9 +43,7 @@ onMounted(async () => {
 });
 
 async function fetchSVG() {
-  const response = await axios.get(
-    `${process.env.GITHUB_CALENDAR_URL}/${props.username}/contributions`
-  );
+  const response = await api.get(`/${props.username}/contributions`);
   fetchedSVG.value = response.data.svg;
   contributions.value = response.data.contributions;
   setTimeout(() => {
