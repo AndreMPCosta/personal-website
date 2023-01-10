@@ -64,7 +64,7 @@ module.exports = configure(function (/* ctx */) {
       // publicPath: '/',
       // analyze: true,
       env: {
-        GITHUB_CALENDAR_URL: 'https://github-calendar.andrecosta.eu',
+        GITHUB_CALENDAR_URL: 'https://github-chart.andrecosta.eu',
         ...require('dotenv').config().parsed,
       },
       // rawDefine: {}
