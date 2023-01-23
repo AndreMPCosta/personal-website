@@ -102,8 +102,10 @@ function onSetActive(index: number) {
 
 .description
   min-width: 432px
+  height: 320px
   @media (max-width: $breakpoint-sm-max)
     min-width: inherit
+    height: 374px
 
 ul
   list-style: none
