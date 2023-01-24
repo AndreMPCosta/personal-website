@@ -1,6 +1,7 @@
 import { Project } from 'src/models/Project';
 import GymAppContent from 'components/projectSlots/GymAppContent.vue';
 import MangalibeContent from 'components/projectSlots/MangalibeContent.vue';
+import PadelCheckerContent from 'components/projectSlots/PadelCheckerContent.vue';
 
 const projects: Project[] = [
   {
@@ -22,8 +23,9 @@ const projects: Project[] = [
     subtitle: 'Tool For Padel Players',
     stack: ['FastApi', 'MongoDB', 'Python'],
     github: 'https://github.com/AndreMPCosta/padel-checker-pub',
-    homepage: 'http://185.185.127.191:8000/docs',
-    backImages: [],
+    homepage: 'https://padel-checker.andrecosta.eu/docs',
+    slot: PadelCheckerContent as InstanceType<typeof PadelCheckerContent>,
+    backImages: ['/projects/padel_resized.png'],
   },
   {
     imageSrc: '/projects/gym.png',
