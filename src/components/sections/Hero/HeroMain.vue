@@ -45,16 +45,16 @@
 import { computed } from 'vue';
 import { useQuasar } from 'quasar';
 
-const $q = useQuasar();
+const q = useQuasar();
 const headerClass = computed(() => {
-  return $q.screen.gt.sm ? 'text-h1' : $q.screen.gt.xs ? 'text-h3' : 'text-h4';
+  return q.screen.gt.sm ? 'text-h1' : q.screen.gt.xs ? 'text-h3' : 'text-h4';
 });
 
 const footerClass = computed(() => {
   const base = 'text-overline text-blue-grey-4';
-  return $q.screen.gt.sm
+  return q.screen.gt.sm
     ? base + ' q-px-xs'
-    : $q.screen.lt.sm
+    : q.screen.lt.sm
     ? base + ' q-px-lg'
     : base + ' q-px-xs';
 });
@@ -66,9 +66,9 @@ const footerClass = computed(() => {
 
 #animate > span
   display: inline-block
+  &:hover
+    color: var(--q-primary)
+    animation: rubberBand
+    animation-duration: 1s
 
-#animate > span:hover
-  color: var(--q-primary)
-  animation: rubberBand
-  animation-duration: 1s
 </style>

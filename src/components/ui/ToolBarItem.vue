@@ -3,13 +3,16 @@
     class="col-auto items-center justify-center control-fade hover-underline-animation"
     @click="scrollToSection"
   >
-    <div class="row number justify-end">{{ number.padStart(2, '0') }}</div>
+    <div class="row number justify-end" v-if="number">
+      {{ number.padStart(2, '0') }}
+    </div>
     <div class="row q-pl-xs label">// {{ label }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useQuasar } from 'quasar';
 
 interface Props {
   number?: string;
@@ -19,15 +22,26 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+const q = useQuasar();
 
 function scrollToSection() {
   const element = document.getElementById(props.section);
-  if (element != null)
-    window.scrollTo({
-      left: window.scrollX,
-      top: element.offsetTop - 40,
-      behavior: 'smooth',
-    });
+  if (element != null) {
+    if (q.screen.lt.md)
+      setTimeout(() => {
+        window.scrollTo({
+          left: window.scrollX,
+          top: element.offsetTop - 40,
+          behavior: 'smooth',
+        });
+      }, 1);
+    else
+      window.scrollTo({
+        left: window.scrollX,
+        top: element.offsetTop - 40,
+        behavior: 'smooth',
+      });
+  }
 }
 
 const opacity = computed(() => {

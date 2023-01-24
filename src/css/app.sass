@@ -20,6 +20,8 @@ section
 .hero
   @media (max-width: $breakpoint-xs-max)
     justify-content: center
+  @media (max-width: $breakpoint-sm-max)
+    padding-top: 5rem
 
 section
   margin-top: 60px
@@ -48,10 +50,9 @@ section
   border-radius: 10px
 
 .slot-header
-  color: $lightest-slate
-
+  color: var(--lightest-slate)
 .slot-body
-  color: $slate
+  color: var(--slate)
 
 .hover-underline-animation
   text-decoration: none
@@ -59,24 +60,26 @@ section
   position: relative
   color: var(--q-primary)
 
-.hover-underline-animation:after
-  content: ''
-  position: absolute
-  width: 100%
-  transform: scaleX(0)
-  height: 1px
-  bottom: 0
-  left: 0
-  background-color: var(--q-primary)
-  transform-origin: bottom left
-  transition: transform 0.25s ease-out
+  &:after
+    content: ''
+    position: absolute
+    width: 100%
+    transform: scaleX(0)
+    height: 1px
+    bottom: 0
+    left: 0
+    background-color: var(--q-primary)
+    transform-origin: bottom left
+    transition: transform 0.25s ease-out
 
-.hover-underline-animation:hover:after
-  transform: scaleX(1)
-  transform-origin: bottom left
+  &:hover:after
+    transform: scaleX(1)
+    transform-origin: bottom left
+
 //@font-face
-//  font-family: PlayFair Display
-//  src: url('./fonts/PlayfairDisplay-VariableFont_wght.ttf')
-//
-//.about-font
-//  font-family: 'PlayFair Display', sans-serif
+//  font-family: Poppins
+//  src: url('./fonts/Poppins-Medium.ttf')
+
+.logo-font
+  font-family: 'Consolas', monospace
+  font-size: 2rem
