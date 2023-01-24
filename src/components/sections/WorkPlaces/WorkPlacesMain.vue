@@ -52,6 +52,7 @@ import TechIcon from 'components/ui/TechIcon.vue';
 interface Props {
   fireAnimation: Record<string, boolean>;
 }
+
 const props = defineProps<Props>();
 const tech = ref<HTMLElement | null>(null);
 
@@ -78,27 +79,6 @@ function onSetActive(index: number) {
   padding-left: 1.5px
   color: $light-slate
 
-.hover-underline-animation
-  text-decoration: none
-  display: inline-block
-  position: relative
-  color: var(--q-primary)
-
-.hover-underline-animation:after
-  content: ''
-  position: absolute
-  width: 100%
-  transform: scaleX(0)
-  height: 1px
-  bottom: 0
-  left: 0
-  background-color: var(--q-primary)
-  transform-origin: bottom left
-  transition: transform 0.25s ease-out
-
-.hover-underline-animation:hover:after
-  transform: scaleX(1)
-  transform-origin: bottom left
 
 .description
   min-width: 432px
@@ -109,11 +89,13 @@ function onSetActive(index: number) {
 
 ul
   list-style: none
+
   li
     max-width: 400px
     position: relative
     padding-left: 20px
     color: $slate
+
   li::before
     content: "»"
     position: absolute

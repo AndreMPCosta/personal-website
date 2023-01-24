@@ -3,6 +3,7 @@
     <div class="column">
       <div v-for="(section, index) in sections" :key="index">
         <component
+          :id="section.name"
           v-intersection="{
             handler: (element) => showSection(element, section.name),
             cfg: {
