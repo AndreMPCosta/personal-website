@@ -74,10 +74,10 @@ const opacity = computed(() => {
   color: var(--q-primary)
 
 .label
-  font-family: "Fira Code", monospace
-  font-weight: 1000
+  font-family: "Roboto Light", monospace
+  font-weight: 600
   color: white
-  font-size: 1.1rem
+  font-size: .9rem
 
 .control-fade
   opacity: v-bind(opacity)

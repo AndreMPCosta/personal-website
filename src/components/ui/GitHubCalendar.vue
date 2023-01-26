@@ -1,20 +1,33 @@
 <template>
   <div>
     <p class="text-caption">{{ contributions }}</p>
-    <div class="col col-xs-12 q-px-sm" v-html="fetchedSVG"></div>
-    <!--    <img src='http://localhost:10000/andrempcosta/contributions?get_image=true' alt='github-chart'/>-->
+    <div
+      class="col col-xs-12 q-px-sm"
+      v-html="fetchedSVG"
+      v-if="!$q.platform.is.mobile"
+    />
+    <div class="col col-xs-12 q-px-sm" v-else>
+      <img
+        :src="`${baseURL}andrempcosta/contributions?get_image=true`"
+        alt="github-chart"
+        style="max-width: 100%"
+      />
+    </div>
+    <div id="tooltip" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { api } from 'boot/axios';
+import { api, baseURL } from 'boot/axios';
+import { useQuasar } from 'quasar';
 
 interface Props {
   username: string;
 }
 
 const props = defineProps<Props>();
+const q = useQuasar();
 
 const fetchedSVG = ref('');
 const contributions = ref('');
@@ -28,18 +41,25 @@ let originalTranslateX: number;
 let originalTranslateY: number;
 
 onMounted(async () => {
-  fetchSVG().then();
-  svg = await onElementFound('.js-calendar-graph-svg', {
-    timeout: 10000,
-    freq: 100,
-  });
-  svgG = document.querySelector('.js-calendar-graph-svg g') as HTMLElement;
-  widthSvgG = svgG.getBoundingClientRect().width;
-  transformSvgG = window.getComputedStyle(svgG).transform;
-  splat = transformSvgG.split(',');
-  originalTranslateX = parseInt(splat[4]);
-  originalTranslateY = parseInt(splat[5]);
-  adjustSvgPosition();
+  if (!q.platform.is.mobile) {
+    fetchSVG().then();
+    svg = await onElementFound('.js-calendar-graph-svg', {
+      timeout: 10000,
+      freq: 100,
+    });
+    svgG = document.querySelector('.js-calendar-graph-svg g') as HTMLElement;
+    widthSvgG = svgG.getBoundingClientRect().width;
+    transformSvgG = window.getComputedStyle(svgG).transform;
+    splat = transformSvgG.split(',');
+    originalTranslateX = parseInt(splat[4]);
+    originalTranslateY = parseInt(splat[5]);
+    adjustSvgPosition();
+  } else {
+    const response = await api.get(
+      `/${props.username}/contributions?number_contributions_only=true`
+    );
+    contributions.value = response.data.contributions;
+  }
 });
 
 async function fetchSVG() {
@@ -113,4 +133,13 @@ window.addEventListener('resize', () => {
 p
   font-size: 1rem
   margin-bottom: 2rem
+
+#tooltip
+  position: absolute
+  display: none
+  background-color: rgb(110, 118, 128)
+  border-radius: 0.4em
+  font-size: 0.85em
+  padding: 8px
+  transform: translateX(-50%)
 </style>
