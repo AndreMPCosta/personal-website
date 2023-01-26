@@ -14,7 +14,7 @@
       <q-toolbar class="extra-p">
         <div class="row items-center justify-center full-width q-gutter-lg">
           <tool-bar-item
-            :number="(index + 1).toString()"
+            :number="item.section ? index.toString(): false"
             :label="item.label"
             v-for="(item, index) in items"
             :key="index"
@@ -80,6 +80,10 @@ const q = useQuasar();
 const drawer = ref<boolean>(false);
 
 const items = [
+  {
+    label: 'Home',
+    section: null
+  },
   {
     label: 'About',
     section: 'AboutSection',

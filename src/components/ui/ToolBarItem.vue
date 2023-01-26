@@ -3,8 +3,8 @@
     class="col-auto items-center justify-center control-fade hover-underline-animation"
     @click="scrollToSection"
   >
-    <div class="row number justify-end" v-if="number">
-      {{ number.padStart(2, '0') }}
+    <div class="row number justify-end" :style="{ opacity: number ? 1 : 0 }">
+      {{ number ? number.padStart(2, '0') : '00' }}
     </div>
     <div class="row q-pl-xs label">// {{ label }}</div>
   </div>
@@ -15,9 +15,9 @@ import { computed } from 'vue';
 import { useQuasar } from 'quasar';
 
 interface Props {
-  number?: string;
+  number?: string | boolean;
   label: string;
-  section: string;
+  section: string | null;
   isFaded: boolean;
 }
 
@@ -25,20 +25,37 @@ const props = defineProps<Props>();
 const q = useQuasar();
 
 function scrollToSection() {
-  const element = document.getElementById(props.section);
-  if (element != null) {
+  if (props.section) {
+    const element = document.getElementById(props.section);
+    if (element != null) {
+      if (q.screen.lt.md)
+        setTimeout(() => {
+          window.scrollTo({
+            left: window.scrollX,
+            top: element.offsetTop - 40,
+            behavior: 'smooth',
+          });
+        }, 1);
+      else
+        window.scrollTo({
+          left: window.scrollX,
+          top: element.offsetTop - 40,
+          behavior: 'smooth',
+        });
+    }
+  } else {
     if (q.screen.lt.md)
       setTimeout(() => {
         window.scrollTo({
           left: window.scrollX,
-          top: element.offsetTop - 40,
+          top: 0,
           behavior: 'smooth',
         });
       }, 1);
     else
       window.scrollTo({
         left: window.scrollX,
-        top: element.offsetTop - 40,
+        top: 0,
         behavior: 'smooth',
       });
   }

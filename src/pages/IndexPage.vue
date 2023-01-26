@@ -15,6 +15,18 @@
         ></component>
       </div>
     </div>
+    <q-page-scroller
+      position="bottom-right"
+      :scroll-offset="200"
+      :offset="[18, 18]"
+    >
+      <q-btn
+        fab-mini
+        icon="keyboard_arrow_up"
+        color="primary"
+        @click="scrollToTop"
+      />
+    </q-page-scroller>
   </q-page>
 </template>
 
@@ -78,6 +90,14 @@ function showSection(observer: IntersectionObserverEntry, sectionName: string) {
       fireAnimation.value = true;
     }
   }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    left: window.scrollX,
+    top: 0,
+    behavior: 'smooth',
+  });
 }
 </script>
 
