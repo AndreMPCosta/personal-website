@@ -246,15 +246,6 @@ function flip() {
 .changeColor:hover
   color: var(--q-primary)
 
-a
-  text-decoration: none
-
-  &:visited
-    color: inherit
-
-  &:link
-    color: inherit
-
 .flip-left-out
   transition: all 1s ease-out
   backface-visibility: hidden

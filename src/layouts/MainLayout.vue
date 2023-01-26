@@ -14,7 +14,7 @@
       <q-toolbar class="extra-p">
         <div class="row items-center justify-center full-width q-gutter-lg">
           <tool-bar-item
-            :number="item.section ? index.toString() : false"
+            :number="item.section !== 'HomeSection' ? index.toString() : false"
             :label="item.label"
             v-for="(item, index) in items"
             :key="index"
@@ -67,7 +67,7 @@
 
     <q-page-container>
       <router-view />
-      <ContactSection />
+      <ContactSection username="andrempcosta" />
     </q-page-container>
   </q-layout>
 </template>
@@ -84,7 +84,7 @@ const drawer = ref<boolean>(false);
 const items = [
   {
     label: 'Home',
-    section: null,
+    section: 'HomeSection',
   },
   {
     label: 'About',
@@ -98,6 +98,10 @@ const items = [
     label: 'Projects',
     section: 'ProjectsSection',
   },
+  {
+    label: 'Contact',
+    section: 'ContactSection',
+  },
 ];
 
 const isFaded = ref<boolean[]>(Array(items.length).fill(false));
@@ -109,9 +113,6 @@ function controlFade(index: number, enter: boolean) {
 </script>
 
 <style scoped lang="sass">
-.dark-header
-  background-color: var(--q-dark-page)
-
 .extra-p
   padding-left: 8rem
 

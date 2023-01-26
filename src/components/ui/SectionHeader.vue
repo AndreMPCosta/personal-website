@@ -21,14 +21,14 @@ defineProps<Props>();
 const numeration = ref<HTMLElement | null>(null);
 const title = ref<HTMLElement | null>(null);
 
-const $q = useQuasar();
+const q = useQuasar();
 
 const lineWidth = computed(() => {
   if (numeration.value && title.value)
-    return $q.screen.gt.sm
+    return q.screen.gt.sm
       ? '400px'
       : `${
-          $q.screen.width -
+          q.screen.width -
           (numeration.value.clientWidth + title.value.clientWidth + 50)
         }px`;
   return '400px';

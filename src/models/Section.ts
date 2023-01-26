@@ -8,5 +8,5 @@ export interface Section {
     | InstanceType<typeof AboutSection>
     | InstanceType<typeof WorkPlacesSection>;
   name: string;
-  props: Object;
+  props: Record<string, unknown>;
 }

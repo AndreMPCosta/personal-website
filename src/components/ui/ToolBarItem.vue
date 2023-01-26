@@ -17,7 +17,7 @@ import { useQuasar } from 'quasar';
 interface Props {
   number?: string | boolean;
   label: string;
-  section: string | null;
+  section: string;
   isFaded: boolean;
 }
 
@@ -25,7 +25,7 @@ const props = defineProps<Props>();
 const q = useQuasar();
 
 function scrollToSection() {
-  if (props.section) {
+  if (!['HomeSection', 'ContactSection'].includes(props.section)) {
     const element = document.getElementById(props.section);
     if (element != null) {
       if (q.screen.lt.md)
@@ -48,14 +48,14 @@ function scrollToSection() {
       setTimeout(() => {
         window.scrollTo({
           left: window.scrollX,
-          top: 0,
+          top: props.section === 'HomeSection' ? 0 : document.body.scrollHeight,
           behavior: 'smooth',
         });
       }, 1);
     else
       window.scrollTo({
         left: window.scrollX,
-        top: 0,
+        top: props.section === 'HomeSection' ? 0 : document.body.scrollHeight,
         behavior: 'smooth',
       });
   }
