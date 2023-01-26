@@ -70,5 +70,4 @@ const footerClass = computed(() => {
     color: var(--q-primary)
     animation: rubberBand
     animation-duration: 1s
-
 </style>

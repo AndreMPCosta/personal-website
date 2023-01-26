@@ -4,7 +4,8 @@
     • Fetch the available slots for the zone picked
     <br />
     <br />
-    • Ability to add a watcher and get notified when a court is available to book
+    • Ability to add a watcher and get notified when a court is available to
+    book
     <br />
     <br />
     • Delete a watcher

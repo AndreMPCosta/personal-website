@@ -11,8 +11,7 @@
     • Check monthly schedule
     <br />
     <br />
-    • Check number of the students enrolled and see if the class is already
-    full
+    • Check number of the students enrolled and see if the class is already full
   </div>
 </template>
 

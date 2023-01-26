@@ -8,7 +8,7 @@
     />
     <div class="col col-xs-12 q-px-sm" v-else>
       <img
-        :src="`${baseURL}andrempcosta/contributions?get_image=true`"
+        :src="`${baseURL}/andrempcosta/contributions?get_image=true`"
         alt="github-chart"
         style="max-width: 100%"
       />
@@ -40,9 +40,9 @@ let splat: string[];
 let originalTranslateX: number;
 let originalTranslateY: number;
 
-onMounted(async () => {
+async function initialize() {
   if (!q.platform.is.mobile) {
-    fetchSVG().then();
+    await fetchSVG();
     svg = await onElementFound('.js-calendar-graph-svg', {
       timeout: 10000,
       freq: 100,
@@ -60,6 +60,10 @@ onMounted(async () => {
     );
     contributions.value = response.data.contributions;
   }
+}
+
+onMounted(async () => {
+  initialize().then();
 });
 
 async function fetchSVG() {
@@ -124,8 +128,9 @@ function hideToolTip() {
   if (tooltip) tooltip.style.display = 'none';
 }
 
-window.addEventListener('resize', () => {
-  adjustSvgPosition();
+window.addEventListener('resize', async () => {
+  await initialize();
+  if (!q.platform.is.mobile) adjustSvgPosition();
 });
 </script>
 

@@ -14,7 +14,7 @@
       <q-toolbar class="extra-p">
         <div class="row items-center justify-center full-width q-gutter-lg">
           <tool-bar-item
-            :number="item.section ? index.toString(): false"
+            :number="item.section ? index.toString() : false"
             :label="item.label"
             v-for="(item, index) in items"
             :key="index"
@@ -48,7 +48,7 @@
             />
           </div>
           <template v-for="(item, index) in items" :key="index">
-            <q-item clickable v-ripple @click='drawer = false'>
+            <q-item clickable v-ripple @click="drawer = false">
               <q-item-section>
                 <tool-bar-item
                   :label="item.label"
@@ -67,6 +67,7 @@
 
     <q-page-container>
       <router-view />
+      <ContactSection />
     </q-page-container>
   </q-layout>
 </template>
@@ -75,6 +76,7 @@
 import ToolBarItem from 'components/ui/ToolBarItem.vue';
 import { ref } from 'vue';
 import { useQuasar } from 'quasar';
+import ContactSection from 'components/sections/Contact/ContactSection.vue';
 
 const q = useQuasar();
 const drawer = ref<boolean>(false);
@@ -82,7 +84,7 @@ const drawer = ref<boolean>(false);
 const items = [
   {
     label: 'Home',
-    section: null
+    section: null,
   },
   {
     label: 'About',
