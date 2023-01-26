@@ -138,7 +138,7 @@
 import { Project } from 'src/models/Project';
 import { reactive, ref } from 'vue';
 import TechIcon from 'components/ui/TechIcon.vue';
-import { QBtn } from 'quasar';
+import { QBtn, useQuasar } from 'quasar';
 import NavigationDots from 'components/ui/NavigationDots.vue';
 
 interface Props {
@@ -148,6 +148,8 @@ interface Props {
 const props = defineProps<Props>();
 const { imageSrc, title, subtitle, stack, github, homepage, backImages } =
   reactive(props.project);
+
+const q = useQuasar();
 
 const arrow = ref<QBtn | null>(null);
 const front = ref<HTMLElement | null>(null);
@@ -159,6 +161,11 @@ const slide = ref<number>(0);
 const minHeight = ref<string>('561px');
 const mobileOffset = ref<string>('0');
 const animationDuration = '.7s';
+
+const enum Sides {
+  Back,
+  Front,
+}
 
 function changeSlide(value: number) {
   slide.value = value;
@@ -175,8 +182,18 @@ function toggleExpanded() {
   }
 }
 
+function resizeFrontCard(side: Sides) {
+  if (side === Sides.Back) {
+    minHeight.value = '538px';
+  } else {
+    minHeight.value = '561px';
+  }
+}
+
 function flip() {
   if (backFace.value) {
+    if (expanded.value) toggleExpanded();
+    if (q.screen.lt.sm) resizeFrontCard(Sides.Back);
     front.value?.classList.remove('flip-left-out');
     back.value?.classList.remove('flip-left-in');
     front.value?.classList.add('flip-left-out--active');
@@ -184,6 +201,7 @@ function flip() {
     actions.value?.classList.remove('animate-fadeIn');
     arrow.value?.$el.classList.add('rotate-back');
   } else {
+    if (q.screen.lt.sm) resizeFrontCard(Sides.Front);
     front.value?.classList.add('flip-left-out');
     back.value?.classList.add('flip-left-in');
     front.value?.classList.remove('flip-left-out--active');

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h5 q-pb-lg slot-header">Features</div>
+  <div class="text-h5 q-py-lg slot-header">Features</div>
   <div class="slot-body">
     • It is able to scan a card with barcode, in order to use the cellphone,
     instead of the card

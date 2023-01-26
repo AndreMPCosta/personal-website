@@ -1,5 +1,5 @@
 <template>
-  <div class="text-h5 q-pb-lg slot-header">Rest API targeting Padel Courts</div>
+  <div class="text-h5 q-py-lg slot-header">Rest API targeting Padel Courts</div>
   <div class="slot-body">
     • Fetch the available slots for the zone picked
     <br />
