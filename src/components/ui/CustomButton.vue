@@ -40,18 +40,18 @@ watch(
 
 <style scoped lang="sass">
 .btnActive
-  color: $primary !important
+  color: var(--q-primary) !important
 
 .active:after
   content: ''
   position: absolute
   height: 36px
   margin-top: 0
-  border-left: .17rem solid $primary
+  border-left: .17rem solid var(--q-primary)
 
 .btn
   font-family: "Fira Code", monospace
   color: $slate
   &:hover
-    color: $primary
+    color: var(--q-primary)
 </style>

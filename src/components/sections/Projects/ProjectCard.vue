@@ -244,7 +244,7 @@ function flip() {
   color: $slate !important
 
 .changeColor:hover
-  color: $primary
+  color: var(--q-primary)
 
 a
   text-decoration: none
@@ -317,7 +317,7 @@ a
   transition: transform .5s
 
   &:hover
-    color: $primary
+    color: var(--q-primary)
 
 .rotate-back
   transform: scaleX(-1)

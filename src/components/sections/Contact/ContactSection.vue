@@ -59,7 +59,7 @@
 
 <style scoped lang="sass">
 .container
-  background-color: $secondary
+  background-color: var(--q-primary)
 
 .changeColor
   transition: transform 300ms ease-in-out

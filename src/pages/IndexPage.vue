@@ -23,7 +23,8 @@
       <q-btn
         fab-mini
         icon="keyboard_arrow_up"
-        color="primary"
+        color="white"
+        text-color="primary"
         @click="scrollToTop"
       />
     </q-page-scroller>
