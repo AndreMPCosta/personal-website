@@ -109,7 +109,7 @@ onMounted(() => {
 
 async function getGithubInfo() {
   const response = await axios.get(
-    `https://api.github.com/repos/${props.username}/backend-ecommerce`
+    `https://api.github.com/repos/${props.username}/personal-website`
   );
   console.log(response);
   stars.value = response.data.stargazers_count;
