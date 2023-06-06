@@ -1,4 +1,4 @@
-<div style='text-align: center'>
+<div align="center">
   <img src="public/icons/android-chrome-192x192.png" alt='logo'>
   <h1>andrecosta.eu</h1>
   <img src='public/website-preview.png' alt='website-preview'>
