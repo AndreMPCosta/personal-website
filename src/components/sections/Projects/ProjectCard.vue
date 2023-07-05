@@ -42,7 +42,7 @@
             flat
             icon="eva-github-outline"
             size="md"
-            class="q-pr-md changeColor"
+            class="changeColor"
             :href="github"
             target="_blank"
           />
@@ -52,7 +52,7 @@
             flat
             icon="img:/icons/gitlab.svg"
             size="md"
-            class="q-pr-md changeColor"
+            class="changeColor"
             :href="project.gitlab"
             target="_blank"
           />
@@ -62,7 +62,7 @@
             flat
             icon="eva-link-outline"
             size="md"
-            class="q-pr-md changeColor"
+            class="changeColor"
             :href="homepage"
             target="_blank"
           />
@@ -218,6 +218,7 @@ function flip() {
   width: 460px
   min-height: 724px
   // 748
+  box-shadow: none
 
   @media (max-width: $breakpoint-xs-max)
     width: 320px
