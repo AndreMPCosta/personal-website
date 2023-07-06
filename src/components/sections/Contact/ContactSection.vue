@@ -111,9 +111,7 @@ async function getGithubInfo() {
   const response = await axios.get(
     `https://api.github.com/repos/${props.username}/personal-website`
   );
-  console.log(response);
   stars.value = response.data.stargazers_count;
-  console.log(stars.value);
   forks.value = response.data.forks;
 }
 </script>
@@ -143,8 +141,6 @@ div.text-h5
   text-decoration: none
   color: #2C3E50
   box-sizing: border-box
-  -moz-box-sizing: border-box
-  -webkit-box-sizing: border-box
   font-weight: 600
   -webkit-user-select: none
   -webkit-touch-callout: none
