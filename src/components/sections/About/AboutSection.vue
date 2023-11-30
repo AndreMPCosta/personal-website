@@ -6,7 +6,8 @@
     <div class="col">
       <AboutMain />
     </div>
-    <GitHubCalendar username="andrempcosta" class="q-pt-lg" />
+<!--    <GitHubCalendar username="andrempcosta" class="q-pt-lg" />-->
+    <GitHubCalendarv2 username="andrempcosta" class="q-pt-lg" />
   </section>
 </template>
 
@@ -14,7 +15,8 @@
 import SectionHeader from '../../ui/SectionHeader.vue';
 import AboutMain from './AboutMain.vue';
 import { onMounted, ref, VueElement } from 'vue';
-import GitHubCalendar from 'components/ui/GitHubCalendar.vue';
+// import GitHubCalendar from 'components/ui/GitHubCalendar.vue';
+import GitHubCalendarv2 from 'components/ui/GitHubCalendarv2.vue';
 
 const root = ref<VueElement | null>(null);
 

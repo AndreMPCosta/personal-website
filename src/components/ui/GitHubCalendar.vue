@@ -8,7 +8,7 @@
     />
     <div class="col col-xs-12 q-px-sm" v-else>
       <img
-        :src="`${baseURL}/andrempcosta/contributions?get_image=true`"
+        :src="`${baseURL}/${username}/contributions?get_image=true`"
         alt="github-chart"
         style="max-width: 100%"
       />

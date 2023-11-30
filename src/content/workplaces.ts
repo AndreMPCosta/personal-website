@@ -2,11 +2,26 @@ import { GroupElement } from 'src/models/GroupElement';
 
 const workPlaces: GroupElement[] = [
   {
+    label: 'Occam',
+    content: {
+      title: 'Senior Backend Engineer',
+      companyURL: new URL('https://occam-atlas.ai/'),
+      date: 'September 2023 — Present',
+      info: [],
+      technologies: [
+        'Python',
+        'FastApi',
+        'MongoDB',
+        'vue',
+      ],
+    }
+  },
+  {
     label: 'TekPrivacy',
     content: {
       title: 'Engineer',
       companyURL: new URL('https://tekprivacy.pt/'),
-      date: 'March 2022 — Present',
+      date: 'March 2022 — September 2023',
       info: [
         'Be part of the team responsible for data privacy solutions, being a full stack developer',
         'Develop new features, working closely with the data science team',

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/icons/android-chrome-192x192.png" alt='logo'>
+  <img src="icons/android-chrome-192x192.png" alt='logo'>
   <h1>andrecosta.eu</h1>
   <img src='public/website-preview.png' alt='website-preview'>
 </div>
