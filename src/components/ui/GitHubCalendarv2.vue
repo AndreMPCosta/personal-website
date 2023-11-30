@@ -1,10 +1,21 @@
 <template>
   <div>
+    <p class="text-caption">
+      {{ contributions.total.lastYear.toLocaleString() }} contributions in the
+      last year
+    </p>
     <calendar-heatmap
       :values="contributions.contributions"
       :end-date="today"
       dark-mode
-      :range-color="['#161b22', '#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']"
+      :range-color="[
+        '#161b22',
+        '#161b22',
+        '#0e4429',
+        '#006d32',
+        '#26a641',
+        '#39d353',
+      ]"
       :round="5"
     ></calendar-heatmap>
   </div>
@@ -49,6 +60,10 @@ onMounted(async () => {
 </script>
 
 <style scoped lang="sass">
+p
+  font-size: 1rem
+  margin-bottom: 2rem
+
 .dark-mode
   fill: white
   font-size: 10px
