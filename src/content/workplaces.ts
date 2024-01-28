@@ -2,10 +2,10 @@ import { GroupElement } from 'src/models/GroupElement';
 
 const workPlaces: GroupElement[] = [
   {
-    label: 'Occam',
+    label: 'Stealth Startup',
     content: {
       title: 'Senior Backend Engineer',
-      companyURL: new URL('https://occam-atlas.ai/'),
+      companyURL: new URL('https://andrecosta.eu'),
       date: 'September 2023 — Present',
       info: [],
       technologies: [
@@ -13,6 +13,7 @@ const workPlaces: GroupElement[] = [
         'FastApi',
         'MongoDB',
         'vue',
+        'Google Cloud Platform'
       ],
     }
   },
