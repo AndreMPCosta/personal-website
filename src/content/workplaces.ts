@@ -13,9 +13,9 @@ const workPlaces: GroupElement[] = [
         'FastApi',
         'MongoDB',
         'vue',
-        'Google Cloud Platform'
+        'Google Cloud Platform',
       ],
-    }
+    },
   },
   {
     label: 'TekPrivacy',

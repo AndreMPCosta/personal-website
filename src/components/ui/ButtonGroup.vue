@@ -4,7 +4,7 @@
       class="col"
       v-for="(group, index) in groupElements"
       :key="group.label"
-      ref="buttonRefs"
+      :ref="setButtonRef"
     >
       <custom-button
         :label="group.label"
@@ -30,8 +30,13 @@ withDefaults(defineProps<Props>(), {
 });
 
 const activeElement = ref<number>(0);
+const buttonRefs = ref<HTMLElement[]>([]);
 
-const buttonRefs = ref([]);
+const setButtonRef = (el: HTMLElement) => {
+  if (el) {
+    buttonRefs.value.push(el);
+  }
+};
 
 function handleClick(index: number) {
   activeElement.value = index;
@@ -41,13 +46,18 @@ function handleClick(index: number) {
 const maxWidth = computed(() => {
   let tempWidth = 0;
   buttonRefs.value.forEach((elem) => {
-    if (elem.children[0].lastChild.offsetWidth > tempWidth)
-      tempWidth = elem.children[0].lastChild.offsetWidth;
+    const child = elem.children[0]?.lastChild as HTMLElement;
+    // console.log(child, child.offsetWidth);
+    if (child && child.offsetWidth > tempWidth) {
+      tempWidth = child.offsetWidth;
+    }
   });
+  // console.log(tempWidth);
   return tempWidth;
 });
 
 const emit = defineEmits(['setActive']);
+
 watch(
   () => maxWidth,
   (currentWidth, prevWidth) => {

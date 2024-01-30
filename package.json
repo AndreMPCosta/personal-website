@@ -17,7 +17,7 @@
     "@quasar/cli": "^2.2.1",
     "@quasar/extras": "^1.15.2",
     "animate.css": "^4.1.1",
-    "axios": "^0.21.4",
+    "axios": "^1.6.7",
     "dotenv": "^16.0.3",
     "pinia": "^2.0.21",
     "quasar": "^2.7.7",

@@ -7,6 +7,7 @@
 ---
 
 This website was developed using:
+
 - **Vue.js** for the frontend framework
 - **TypeScript** for static type checking and improved development experience
 - **Quasar** for the UI components and design

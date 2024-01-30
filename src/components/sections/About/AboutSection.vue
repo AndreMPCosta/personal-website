@@ -6,7 +6,7 @@
     <div class="col">
       <AboutMain />
     </div>
-<!--    <GitHubCalendar username="andrempcosta" class="q-pt-lg" />-->
+    <!--    <GitHubCalendar username="andrempcosta" class="q-pt-lg" />-->
     <GitHubCalendarv2 username="andrempcosta" class="q-pt-lg" />
   </section>
 </template>

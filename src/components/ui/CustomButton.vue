@@ -8,13 +8,13 @@
       flat
       :label="label"
       align="left"
-      :class="{ btn: true, btnActive: active }"
+      :class="{ btn: true, btnActive: active, 'custom-wrap': true }"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 
 interface Props {
   label: string;
@@ -26,14 +26,22 @@ const props = withDefaults(defineProps<Props>(), {
   active: () => false,
 });
 
-const button = ref(null);
+const button = ref<HTMLButtonElement | null>(null);
+
+const updateButtonWidth = async (currentWidth: number) => {
+  await nextTick(); // Wait for the next DOM update cycle
+  if (button.value) {
+    const buttonElement = button.value.$el; // Access the actual DOM element
+    if (buttonElement) {
+      buttonElement.style.width = `${currentWidth}px`;
+    }
+  }
+};
 
 watch(
   () => props.width,
   (currentWidth) => {
-    if (button.value !== null) {
-      button.value['$el']['style'].width = `${currentWidth}px`;
-    }
+    if (currentWidth) updateButtonWidth(currentWidth);
   }
 );
 </script>
@@ -41,6 +49,9 @@ watch(
 <style scoped lang="sass">
 .btnActive
   color: var(--q-primary) !important
+
+.custom-wrap
+  white-space: nowrap
 
 .active:after
   content: ''
