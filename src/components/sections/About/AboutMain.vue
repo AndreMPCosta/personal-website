@@ -8,7 +8,7 @@
       "
     >
       <q-avatar size="256px">
-        <img :src="'profile_cropped.jpg'" alt="profile" />
+        <img :src="'profile_cropped_bak.jpg'" alt="profile" />
       </q-avatar>
     </div>
   </div>
