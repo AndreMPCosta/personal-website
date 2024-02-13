@@ -35,9 +35,7 @@ const projects: Project[] = [
     github: 'https://github.com/AndreMPCosta/PlayRestAPI',
     gitlab: 'https://gitlab.com/andrempcosta/playapp',
     slot: GymAppContent as InstanceType<typeof GymAppContent>,
-    backImages: [
-      'https://camo.githubusercontent.com/3a5be86d350ecd4e18003b3acdd9fcb71f5095e286a74481d3e08a98add3e9bb/68747470733a2f2f692e696d6775722e636f6d2f39486d72644e512e676966',
-    ],
+    backImages: ['/projects/gym_app.gif'],
   },
 ];
 
