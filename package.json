@@ -17,7 +17,7 @@
     "@quasar/cli": "^2.2.1",
     "@quasar/extras": "^1.15.2",
     "animate.css": "^4.1.1",
-    "axios": "^1.6.7",
+    "axios": "latest",
     "dotenv": "^16.0.3",
     "pinia": "^2.0.21",
     "quasar": "^2.7.7",
@@ -38,10 +38,5 @@
     "tippy.js": "^6.3.7",
     "typescript": "^4.8.2",
     "vue3-calendar-heatmap": "^2.0.5"
-  },
-  "engines": {
-    "node": "^18 || ^16 || ^14.19",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
   }
 }

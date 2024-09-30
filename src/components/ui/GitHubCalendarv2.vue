@@ -17,6 +17,7 @@
         '#39d353',
       ]"
       :round="5"
+      class="calendar"
     ></calendar-heatmap>
   </div>
 </template>
@@ -67,4 +68,7 @@ p
 .dark-mode
   fill: white
   font-size: 10px
+
+.calendar
+  cursor: pointer
 </style>
