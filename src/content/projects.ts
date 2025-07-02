@@ -10,7 +10,7 @@ const projects: Project[] = [
     subtitle: 'Acessories/Clothes Online Shop',
     stack: ['vue', 'quasar', 'mongodb', 'fastapi', 'Python'],
     github: 'https://github.com/AndreMPCosta/backend-ecommerce',
-    homepage: 'https://mangalibe.com',
+    // homepage: 'https://mangalibe.com',
     slot: MangalibeContent as InstanceType<typeof MangalibeContent>,
     backImages: [
       '/projects/mangalibe_showcase_resize.jpg',
@@ -23,7 +23,7 @@ const projects: Project[] = [
     subtitle: 'Tool For Padel Players',
     stack: ['FastApi', 'MongoDB', 'Python'],
     github: 'https://github.com/AndreMPCosta/padel-checker-pub',
-    homepage: 'https://padel-checker.andrecosta.eu/docs',
+    // homepage: 'https://padel-checker.andrecosta.eu/docs',
     slot: PadelCheckerContent as InstanceType<typeof PadelCheckerContent>,
     backImages: ['/projects/padel_resized.png'],
   },
