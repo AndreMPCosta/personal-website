@@ -10,13 +10,7 @@ const workPlaces: GroupElement[] = [
       info: [
         'Working on the backend of a new wearable device that unlocks a deeper understanding of the mind',
       ],
-      technologies: [
-        'Python',
-        'FastApi',
-        'MongoDB',
-        'vue',
-        'Google Cloud Platform',
-      ],
+      technologies: ['Python', 'FastApi', 'MongoDB', 'vue', 'TypeScript'],
     },
   },
   {
