@@ -7,6 +7,6 @@ export interface ContributionsResponse {
       date: string;
       count: number;
       level: number;
-    }
+    },
   ];
 }

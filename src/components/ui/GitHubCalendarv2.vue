@@ -49,7 +49,7 @@ const contributions = ref<ContributionsResponse>({
 const today = new Date();
 onMounted(async () => {
   const response = await axios.get(
-    `https://github-contributions-api.jogruber.de/v4/${props.username}?y=last`
+    `https://github-contributions-api.jogruber.de/v4/${props.username}?y=last`,
   );
   contributions.value = response.data;
   setTimeout(() => {

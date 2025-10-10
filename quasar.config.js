@@ -8,9 +8,10 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
-const { configure } = require('quasar/wrappers');
+import { defineConfig } from '#q-app/wrappers';
+import dotenv from 'dotenv';
 
-module.exports = configure(function (/* ctx */) {
+export default defineConfig(function (/* ctx */) {
   return {
     eslint: {
       // fix: true,
@@ -65,7 +66,7 @@ module.exports = configure(function (/* ctx */) {
       // analyze: true,
       env: {
         GITHUB_CALENDAR_URL: 'https://github-chart.andrecosta.eu',
-        ...require('dotenv').config().parsed,
+        ...dotenv.config().parsed,
       },
       // rawDefine: {}
       // ignorePublicFolder: true,

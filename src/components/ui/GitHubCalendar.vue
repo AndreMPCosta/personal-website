@@ -56,7 +56,7 @@ async function initialize() {
     adjustSvgPosition();
   } else {
     const response = await api.get(
-      `/${props.username}/contributions?number_contributions_only=true`
+      `/${props.username}/contributions?number_contributions_only=true`,
     );
     contributions.value = response.data.contributions;
   }
@@ -72,7 +72,7 @@ async function fetchSVG() {
   contributions.value = response.data.contributions;
   setTimeout(() => {
     const days = Array.from(
-      document.querySelectorAll('.ContributionCalendar-day')
+      document.querySelectorAll('.ContributionCalendar-day'),
     ) as HTMLElement[];
     days.forEach((day) => {
       day.addEventListener('mousemove', (event: Event) => {

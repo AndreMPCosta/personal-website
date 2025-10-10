@@ -14,7 +14,7 @@ interface Props {
   showSection: (
     element: VueElement | null,
     sectionName: string,
-    forceCall: boolean
+    forceCall: boolean,
   ) => void;
 }
 

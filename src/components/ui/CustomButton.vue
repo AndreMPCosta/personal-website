@@ -42,7 +42,7 @@ watch(
   () => props.width,
   (currentWidth) => {
     if (currentWidth) updateButtonWidth(currentWidth);
-  }
+  },
 );
 </script>
 

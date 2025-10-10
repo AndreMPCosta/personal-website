@@ -55,8 +55,8 @@ const footerClass = computed(() => {
   return q.screen.gt.sm
     ? base + ' q-px-xs'
     : q.screen.lt.sm
-    ? base + ' q-px-lg'
-    : base + ' q-px-xs';
+      ? base + ' q-px-lg'
+      : base + ' q-px-xs';
 });
 </script>
 

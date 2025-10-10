@@ -2,12 +2,14 @@ import { GroupElement } from 'src/models/GroupElement';
 
 const workPlaces: GroupElement[] = [
   {
-    label: 'Stealth Startup',
+    label: 'Atlas',
     content: {
       title: 'Senior Backend Engineer',
-      companyURL: new URL('https://andrecosta.eu'),
+      companyURL: new URL('https://atlaswearable.com'),
       date: 'September 2023 — Present',
-      info: [],
+      info: [
+        'Working on the backend of a new wearable device that unlocks a deeper understanding of the mind',
+      ],
       technologies: [
         'Python',
         'FastApi',

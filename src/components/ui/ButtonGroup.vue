@@ -62,7 +62,7 @@ watch(
   () => maxWidth,
   (currentWidth, prevWidth) => {
     console.log(currentWidth, prevWidth);
-  }
+  },
 );
 </script>
 
