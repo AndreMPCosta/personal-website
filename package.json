@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "description": "Personal Website for André Costa",
   "productName": "André Costa",
@@ -12,7 +12,10 @@
     "build:pwa": "quasar build -m pwa",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,ts,vue,,html,md,json}\" --ignore-path .gitignore",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "vitest",
+    "test:unit": "vitest",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:ci": "vitest run"
   },
   "dependencies": {
     "@quasar/cli": "^2.5.0",
@@ -28,18 +31,23 @@
   "devDependencies": {
     "@quasar/app-vite": "^2.0.0",
     "@quasar/quasar-app-extension-qflashcard": "^2.0.0-alpha.4",
+    "@quasar/quasar-app-extension-testing-unit-vitest": "^1.2.3",
     "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.8",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-vue": "^10.0.0",
     "globals": "^16.4.0",
+    "happy-dom": "^20.0.0",
     "prettier": "^3.0.0",
     "tippy.js": "^6.3.7",
     "typescript": "^5.4.0",
     "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4",
     "vue-eslint-parser": "^10.2.0",
     "vue3-calendar-heatmap": "^2.0.5"
   }
