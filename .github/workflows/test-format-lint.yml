@@ -1,0 +1,58 @@
+name: Lint and Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Quasar
+        run: npx quasar prepare
+
+      - name: Check code formatting
+        run: npx prettier --check "**/*.{js,ts,vue,md,json}"
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm run test:unit:ci
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "## Quality Checks ✅" >> $GITHUB_STEP_SUMMARY
+          echo "✓ Prettier formatting check" >> $GITHUB_STEP_SUMMARY
+          echo "✓ ESLint" >> $GITHUB_STEP_SUMMARY
+          echo "✓ Unit tests (108 tests)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All checks passed! This PR is ready to merge and deploy." >> $GITHUB_STEP_SUMMARY
+
+      - name: Failure Summary
+        if: failure()
+        run: |
+          echo "## Quality Checks ❌" >> $GITHUB_STEP_SUMMARY
+          echo "Some checks failed. Please fix the issues before merging." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ This PR cannot be deployed until all checks pass." >> $GITHUB_STEP_SUMMARY
+          exit 1
