@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+dist-ssr
+.quasar
+*.local
+
+# Config files
+eslint.config.js
+postcss.config.js
+quasar.config.js
+tsconfig.json
+quasar.extensions.json
+vitest.config.mts
+
+# HTML files (often auto-generated or have specific formatting)
+index.html
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+
+# Misc
+*.log
+.DS_Store

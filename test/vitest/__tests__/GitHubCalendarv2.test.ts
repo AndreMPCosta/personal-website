@@ -29,12 +29,11 @@ describe('GitHubCalendarv2 Component', () => {
 
     // Mock the DOM element that the component tries to manipulate
     const mockLegend = {
-      children: [
-        { remove: vi.fn() },
-        { remove: vi.fn() },
-      ],
+      children: [{ remove: vi.fn() }, { remove: vi.fn() }],
     };
-    vi.spyOn(document, 'getElementsByClassName').mockReturnValue([mockLegend] as any);
+    vi.spyOn(document, 'getElementsByClassName').mockReturnValue([
+      mockLegend,
+    ] as any);
 
     // Setup default mock response
     vi.mocked(axios.get).mockResolvedValue({ data: mockApiResponse });
@@ -81,7 +80,7 @@ describe('GitHubCalendarv2 Component', () => {
     await vi.runAllTimersAsync();
 
     expect(axios.get).toHaveBeenCalledWith(
-      'https://github-contributions-api.jogruber.de/v4/andrempcosta?y=last'
+      'https://github-contributions-api.jogruber.de/v4/andrempcosta?y=last',
     );
   });
 
@@ -128,7 +127,7 @@ describe('GitHubCalendarv2 Component', () => {
         expect.objectContaining({ level: 0 }),
         expect.objectContaining({ level: 1 }),
         expect.objectContaining({ level: 2 }),
-      ])
+      ]),
     );
   });
 });

@@ -88,7 +88,7 @@ describe('workplaces content', () => {
 
   it('should include Python in most workplaces', () => {
     const pythonWorkplaces = workPlaces.filter((w) =>
-      w.content.technologies.includes('Python')
+      w.content.technologies.includes('Python'),
     );
     expect(pythonWorkplaces.length).toBeGreaterThan(3);
   });

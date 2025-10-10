@@ -69,10 +69,11 @@ describe('ContactSection Component', () => {
     });
 
     const buttons = wrapper.findAllComponents({ name: 'QBtn' });
-    const socialButtons = buttons.filter((btn) =>
-      btn.attributes('href')?.includes('github.com') ||
-      btn.attributes('href')?.includes('linkedin.com') ||
-      btn.attributes('href')?.includes('mailto:')
+    const socialButtons = buttons.filter(
+      (btn) =>
+        btn.attributes('href')?.includes('github.com') ||
+        btn.attributes('href')?.includes('linkedin.com') ||
+        btn.attributes('href')?.includes('mailto:'),
     );
 
     expect(socialButtons.length).toBeGreaterThan(0);
@@ -88,7 +89,7 @@ describe('ContactSection Component', () => {
     await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(axios.get).toHaveBeenCalledWith(
-      expect.stringContaining('api.github.com/repos/testuser/personal-website')
+      expect.stringContaining('api.github.com/repos/testuser/personal-website'),
     );
   });
 
@@ -142,7 +143,9 @@ describe('ContactSection Component', () => {
       },
     });
 
-    const repoLink = wrapper.find('a[href*="github.com/AndreMPCosta/personal-website"]');
+    const repoLink = wrapper.find(
+      'a[href*="github.com/AndreMPCosta/personal-website"]',
+    );
     expect(repoLink.exists()).toBe(true);
   });
 });

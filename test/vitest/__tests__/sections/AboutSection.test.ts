@@ -15,12 +15,11 @@ describe('AboutSection Component', () => {
 
     // Mock DOM element for GitHubCalendarv2 component
     const mockLegend = {
-      children: [
-        { remove: vi.fn() },
-        { remove: vi.fn() },
-      ],
+      children: [{ remove: vi.fn() }, { remove: vi.fn() }],
     };
-    vi.spyOn(document, 'getElementsByClassName').mockReturnValue([mockLegend] as any);
+    vi.spyOn(document, 'getElementsByClassName').mockReturnValue([
+      mockLegend,
+    ] as any);
 
     // Setup default mock response
     vi.mocked(axios.get).mockResolvedValue({

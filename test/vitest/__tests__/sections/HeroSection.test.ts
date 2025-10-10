@@ -42,7 +42,7 @@ describe('HeroSection Component', () => {
     expect(mockShowSection).toHaveBeenCalledWith(
       expect.anything(),
       'HeroSection',
-      true
+      true,
     );
   });
 

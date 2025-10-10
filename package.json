@@ -47,7 +47,6 @@
     "tippy.js": "^6.3.7",
     "typescript": "^5.4.0",
     "typescript-eslint": "^8.46.0",
-    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4",
     "vue-eslint-parser": "^10.2.0",
     "vue3-calendar-heatmap": "^2.0.5"

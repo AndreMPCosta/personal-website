@@ -115,7 +115,7 @@ describe('ToolBarItem Component', () => {
       expect.objectContaining({
         top: 0,
         behavior: 'smooth',
-      })
+      }),
     );
   });
 });

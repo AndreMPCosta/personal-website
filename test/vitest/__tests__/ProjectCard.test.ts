@@ -70,8 +70,8 @@ describe('ProjectCard Component', () => {
     });
 
     const buttons = wrapper.findAllComponents({ name: 'QBtn' });
-    const githubBtn = buttons.find((btn) =>
-      btn.attributes('href') === 'https://github.com/test/project'
+    const githubBtn = buttons.find(
+      (btn) => btn.attributes('href') === 'https://github.com/test/project',
     );
 
     expect(githubBtn).toBeDefined();
@@ -85,8 +85,8 @@ describe('ProjectCard Component', () => {
     });
 
     const buttons = wrapper.findAllComponents({ name: 'QBtn' });
-    const homepageBtn = buttons.find((btn) =>
-      btn.attributes('href') === 'https://test.com'
+    const homepageBtn = buttons.find(
+      (btn) => btn.attributes('href') === 'https://test.com',
     );
 
     expect(homepageBtn).toBeDefined();
@@ -101,8 +101,8 @@ describe('ProjectCard Component', () => {
     });
 
     const buttons = wrapper.findAllComponents({ name: 'QBtn' });
-    const homepageBtn = buttons.find((btn) =>
-      btn.attributes('icon') === 'eva-link-outline'
+    const homepageBtn = buttons.find(
+      (btn) => btn.attributes('icon') === 'eva-link-outline',
     );
 
     expect(homepageBtn).toBeUndefined();
@@ -111,7 +111,7 @@ describe('ProjectCard Component', () => {
   it('should show gitlab link when provided', () => {
     const projectWithGitlab = {
       ...mockProject,
-      gitlab: 'https://gitlab.com/test/project'
+      gitlab: 'https://gitlab.com/test/project',
     };
 
     const wrapper = mount(ProjectCard, {
@@ -121,8 +121,8 @@ describe('ProjectCard Component', () => {
     });
 
     const buttons = wrapper.findAllComponents({ name: 'QBtn' });
-    const gitlabBtn = buttons.find((btn) =>
-      btn.attributes('href') === 'https://gitlab.com/test/project'
+    const gitlabBtn = buttons.find(
+      (btn) => btn.attributes('href') === 'https://gitlab.com/test/project',
     );
 
     expect(gitlabBtn).toBeDefined();
@@ -148,9 +148,7 @@ describe('ProjectCard Component', () => {
     expect(wrapper.vm.expanded).toBe(false);
 
     const stackButtons = wrapper.findAllComponents({ name: 'QBtn' });
-    const stackBtn = stackButtons.find((btn) =>
-      btn.text().includes('Stack')
-    );
+    const stackBtn = stackButtons.find((btn) => btn.text().includes('Stack'));
 
     await stackBtn?.trigger('click');
     expect(wrapper.vm.expanded).toBe(true);
