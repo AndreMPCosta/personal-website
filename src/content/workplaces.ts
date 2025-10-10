@@ -15,7 +15,7 @@ const workPlaces: GroupElement[] = [
         'FastApi',
         'MongoDB',
         'vue',
-        'Google Cloud Platform',
+        'TypeScript',
       ],
     },
   },
