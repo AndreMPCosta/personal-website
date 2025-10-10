@@ -1,1 +1,3 @@
-{}
+{
+  "@quasar/testing-unit-vitest": {}
+}
