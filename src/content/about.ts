@@ -1,12 +1,26 @@
-const aboutDescription = `As a software engineer with a background in biomedical engineering,
-      I bring a unique perspective to my work in the tech industry.
-      My experience in both fields has given me a strong foundation in both
-      technical and problem-solving skills. I have a passion for using technology
-      to improve healthcare and make a positive impact on people's lives.
+const aboutDescription = `Growing up, I had one dream: becoming a football player. Life had other plans.
+      <br>
+      As a teenager, I gravitated toward technology - chose Computer Science first, actually.
+      Plot twist: I thought I hated programming. Switched to Biomedical Engineering, and that's
+      where everything clicked. It wasn't about the code itself; it was the logic, the problem-solving,
+      the ability to bring ideas to life. Turns out, I didn't hate programming - I just hadn't found the
+      right way into it yet.
+      <br>
+      Now? I'm a software developer who genuinely loves this work. Python became my language of choice
+      after an optional university class showed me how simple getting things done could be. These days,
+      I build backend systems (where I'm most comfortable) and dabble in frontend with Vue.js when needed.
       <br>
       <br>
-      In my free time, I enjoy staying up to date on the latest developments
-      in the software engineering industry and experimenting with new technologies.
-      I am also an avid learner and am always looking for ways to improve my skills and knowledge.`;
+      Outside of code, you'll find me with a camera in hand - I shoot with a Sony mirrorless and fly a
+      drone when I can. I've been a gamer since the Gameboy Pocket days, and I'm always planning the
+      next trip to discover new cultures and cuisines. There's something about meeting locals and
+      experiencing a place through its food that never gets old.
+      <br>
+      <br>
+      Health tech is where my heart is. That Biomedical Engineering degree wasn't wasted after all - it
+      just led me to impact healthcare differently than I expected.
+      <br>
+      Fair warning: I'm terrible at naming repositories. But hey, at least my GitHub contribution graph
+      stays consistently green.`;
 
 export default aboutDescription;
